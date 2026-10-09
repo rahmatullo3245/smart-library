@@ -1,0 +1,870 @@
+{% extends "base.html" %}
+
+{% block title %}
+AI Library Studio
+{% endblock %}
+
+{% block page_title %}
+Bosh sahifa
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Welcome -->
+    <div class="welcome-section">
+
+        <div>
+            <div class="welcome-badge">
+                ✨ AI Learning Platform
+            </div>
+
+            <h2>
+                Salom, <span id="welcome-name">Talaba</span>! 👋
+            </h2>
+
+            <p>
+                Bilimingizni kengaytirish va o‘qish jarayoningizni
+                AI yordamida boshqaring.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- MAIN FEATURES -->
+    <div class="feature-grid">
+
+        <!-- AI ASSISTANT -->
+        <a href="/chat" class="feature-card feature-primary">
+
+            <div class="feature-icon">
+                💬
+            </div>
+
+            <div class="feature-content">
+
+                <div class="feature-label">
+                    AI ASSISTANT
+                </div>
+
+                <h3>
+                    Savol bering
+                </h3>
+
+                <p>
+                    Istalgan mavzu bo‘yicha AI bilan suhbatlashing
+                    va kitoblardan kerakli ma’lumotlarni toping.
+                </p>
+
+                <div class="feature-action">
+                    Boshlash
+                    <span>→</span>
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- READING -->
+        <a href="/quiz" class="feature-card feature-reading">
+
+            <div class="feature-icon">
+                📖
+            </div>
+
+            <div class="feature-content">
+
+                <div class="feature-label">
+                    READING VERIFICATION
+                </div>
+
+                <h3>
+                    Kitobni o‘qidim
+                </h3>
+
+                <p>
+                    O‘qigan kitobingizni qanchalik tushunganingizni
+                    AI yordamida tekshiring.
+                </p>
+
+                <div class="feature-action">
+                    Tekshirish
+                    <span>→</span>
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- ROADMAP -->
+        <a href="/roadmap" class="feature-card feature-roadmap">
+
+            <div class="feature-icon">
+                🗺️
+            </div>
+
+            <div class="feature-content">
+
+                <div class="feature-label">
+                    PERSONAL ROADMAP
+                </div>
+
+                <h3>
+                    O‘qish yo‘lingiz
+                </h3>
+
+                <p>
+                    Maqsadingiz va bilim darajangizga mos
+                    shaxsiy o‘quv rejasini tuzing.
+                </p>
+
+                <div class="feature-action">
+                    Roadmap tuzish
+                    <span>→</span>
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- STATUS / USER INFO -->
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h3>
+                        👤 Profil
+                    </h3>
+
+                    <p>
+                        Tizimdagi ma'lumotlaringiz
+                    </p>
+                </div>
+
+                <div class="card-status">
+                    <span></span>
+                    SSO Active
+                </div>
+
+            </div>
+
+
+            <div class="profile-info">
+
+                <div class="profile-row">
+
+                    <span class="profile-label">
+                        Talaba ID
+                    </span>
+
+                    <strong id="student-id">
+                        Tekshirilmoqda...
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span class="profile-label">
+                        F.I.SH
+                    </span>
+
+                    <strong id="student-fullname">
+                        Tekshirilmoqda...
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span class="profile-label">
+                        AI Session
+                    </span>
+
+                    <strong class="session-active">
+                        ● Faol
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card quick-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h3>
+                        🚀 Tezkor boshlash
+                    </h3>
+
+                    <p>
+                        AI Studio'dan foydalanishni boshlang
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="quick-actions">
+
+                <a href="/chat">
+                    <span>💬</span>
+                    AI bilan suhbat
+                </a>
+
+                <a href="/quiz">
+                    <span>📖</span>
+                    Kitobni tekshirish
+                </a>
+
+                <a href="/roadmap">
+                    <span>🗺️</span>
+                    Roadmap yaratish
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ERROR -->
+    <div id="error-container" class="error-box" style="display:none;">
+
+        <strong>⚠ Xatolik:</strong>
+
+        <span id="error-message"></span>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_css %}
+
+<style>
+
+    /* ================= DASHBOARD ================= */
+
+    .welcome-section {
+        margin-bottom: 28px;
+    }
+
+    .welcome-badge {
+        display: inline-flex;
+
+        padding: 5px 10px;
+
+        background: var(--primary-light);
+
+        color: var(--primary-dark);
+
+        border-radius: 20px;
+
+        font-size: 11px;
+        font-weight: 600;
+
+        margin-bottom: 10px;
+    }
+
+    .welcome-section h2 {
+        margin: 0;
+
+        font-size: 28px;
+
+        letter-spacing: -0.03em;
+    }
+
+    .welcome-section h2 span {
+        color: var(--primary);
+    }
+
+    .welcome-section p {
+        margin: 8px 0 0;
+
+        color: var(--text-secondary);
+
+        font-size: 14px;
+    }
+
+
+    /* ================= FEATURES ================= */
+
+    .feature-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 18px;
+
+        margin-bottom: 22px;
+    }
+
+    .feature-card {
+        display: block;
+
+        text-decoration: none;
+
+        background: white;
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius-lg);
+
+        padding: 24px;
+
+        min-height: 245px;
+
+        position: relative;
+
+        overflow: hidden;
+
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            border-color 0.2s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-3px);
+
+        box-shadow: var(--shadow-md);
+
+        border-color: #c7d2fe;
+    }
+
+    .feature-card::after {
+        content: "";
+
+        position: absolute;
+
+        width: 130px;
+        height: 130px;
+
+        right: -45px;
+        bottom: -55px;
+
+        border-radius: 50%;
+
+        background: rgba(99, 102, 241, 0.05);
+    }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 13px;
+
+        font-size: 22px;
+
+        margin-bottom: 20px;
+    }
+
+    .feature-primary .feature-icon {
+        background: #eef2ff;
+    }
+
+    .feature-reading .feature-icon {
+        background: #ecfdf5;
+    }
+
+    .feature-roadmap .feature-icon {
+        background: #f5f3ff;
+    }
+
+    .feature-label {
+        font-size: 10px;
+
+        font-weight: 700;
+
+        letter-spacing: 0.07em;
+
+        color: var(--text-muted);
+
+        margin-bottom: 7px;
+    }
+
+    .feature-content h3 {
+        margin: 0;
+
+        font-size: 19px;
+    }
+
+    .feature-content p {
+        margin: 9px 0 18px;
+
+        color: var(--text-secondary);
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+    .feature-action {
+        color: var(--primary);
+
+        font-size: 13px;
+
+        font-weight: 600;
+    }
+
+    .feature-action span {
+        margin-left: 5px;
+    }
+
+
+    /* ================= DASHBOARD ================= */
+
+    .dashboard-grid {
+        display: grid;
+
+        grid-template-columns:
+            1.2fr 0.8fr;
+
+        gap: 18px;
+    }
+
+    .dashboard-card {
+        background: white;
+
+        border: 1px solid var(--border);
+
+        border-radius: var(--radius-lg);
+
+        padding: 22px;
+    }
+
+    .card-header {
+        display: flex;
+
+        align-items: flex-start;
+
+        justify-content: space-between;
+
+        gap: 15px;
+
+        margin-bottom: 20px;
+    }
+
+    .card-header h3 {
+        margin: 0;
+
+        font-size: 15px;
+    }
+
+    .card-header p {
+        margin: 5px 0 0;
+
+        color: var(--text-secondary);
+
+        font-size: 11px;
+    }
+
+    .card-status {
+        display: flex;
+
+        align-items: center;
+
+        gap: 6px;
+
+        padding: 5px 8px;
+
+        background: #ecfdf5;
+
+        color: #059669;
+
+        border-radius: 7px;
+
+        font-size: 10px;
+
+        font-weight: 600;
+    }
+
+    .card-status span {
+        width: 5px;
+        height: 5px;
+
+        border-radius: 50%;
+
+        background: var(--success);
+    }
+
+
+    /* ================= PROFILE ================= */
+
+    .profile-info {
+        border-top: 1px solid var(--border);
+    }
+
+    .profile-row {
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        padding: 13px 0;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .profile-row:last-child {
+        border-bottom: none;
+    }
+
+    .profile-label {
+        color: var(--text-secondary);
+
+        font-size: 12px;
+    }
+
+    .profile-row strong {
+        font-size: 12px;
+
+        text-align: right;
+
+        max-width: 65%;
+    }
+
+    .session-active {
+        color: var(--success);
+    }
+
+
+    /* ================= QUICK ACTIONS ================= */
+
+    .quick-actions {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .quick-actions a {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 10px 12px;
+
+        background: var(--background);
+
+        border-radius: 9px;
+
+        text-decoration: none;
+
+        color: var(--text);
+
+        font-size: 12px;
+
+        font-weight: 500;
+
+        transition: background 0.2s ease;
+    }
+
+    .quick-actions a:hover {
+        background: var(--primary-light);
+    }
+
+    .quick-actions a span {
+        font-size: 16px;
+    }
+
+
+    /* ================= ERROR ================= */
+
+    .error-box {
+        margin-top: 20px;
+
+        padding: 14px 16px;
+
+        border-radius: 10px;
+
+        background: #fef2f2;
+
+        border: 1px solid #fecaca;
+
+        color: #b91c1c;
+
+        font-size: 13px;
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1000px) {
+
+        .feature-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .feature-card {
+            min-height: auto;
+        }
+
+        .dashboard-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+    @media (max-width: 600px) {
+
+        .welcome-section h2 {
+            font-size: 23px;
+        }
+
+        .feature-card {
+            padding: 20px;
+        }
+
+        .profile-row {
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .profile-row strong {
+            text-align: left;
+            max-width: 100%;
+        }
+
+    }
+
+</style>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const urlParams =
+        new URLSearchParams(window.location.search);
+
+    let token =
+        urlParams.get("token");
+
+
+    /*
+     * ================================================
+     * OLD SSO LOGIC
+     * ================================================
+     *
+     * Hozircha mavjud auth tizimimizni buzmaymiz.
+     */
+
+    if (token) {
+
+        sessionStorage.setItem(
+            "ai_auth_token",
+            token
+        );
+
+        window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+        );
+
+    } else {
+
+        token =
+            sessionStorage.getItem(
+                "ai_auth_token"
+            );
+
+    }
+
+
+    if (!token) {
+
+        showError(
+            "Token topilmadi! Iltimos, kutubxona tizimidan qayta kiring."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/verify-token",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            token: token
+                        })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            response.ok &&
+            data.status === "success"
+        ) {
+
+            const user =
+                data.user;
+
+
+            /*
+             * PROFILE
+             */
+
+            document.getElementById(
+                "student-id"
+            ).innerText =
+                user.uid;
+
+
+            document.getElementById(
+                "student-fullname"
+            ).innerText =
+                user.fullname;
+
+
+            /*
+             * WELCOME
+             */
+
+            const firstName =
+                user.fullname
+                    ? user.fullname.split(" ")[0]
+                    : "Talaba";
+
+
+            document.getElementById(
+                "welcome-name"
+            ).innerText =
+                firstName;
+
+
+            /*
+             * SIDEBAR
+             */
+
+            document.getElementById(
+                "sidebar-user-name"
+            ).innerText =
+                firstName;
+
+
+            document.getElementById(
+                "sidebar-user-id"
+            ).innerText =
+                "ID: " + user.uid;
+
+
+            /*
+             * HEADER
+             */
+
+            document.getElementById(
+                "header-user-name"
+            ).innerText =
+                firstName;
+
+
+            document.getElementById(
+                "header-user-id"
+            ).innerText =
+                "ID: " + user.uid;
+
+
+        } else {
+
+            showError(
+                data.detail ||
+                "Token yaroqsiz!"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        showError(
+            "Server bilan bog‘lanishda xatolik yuz berdi."
+        );
+
+    }
+
+});
+
+
+function showError(message) {
+
+    const errorContainer =
+        document.getElementById(
+            "error-container"
+        );
+
+    const errorMessage =
+        document.getElementById(
+            "error-message"
+        );
+
+
+    if (errorContainer) {
+
+        errorContainer.style.display =
+            "block";
+
+    }
+
+    if (errorMessage) {
+
+        errorMessage.innerText =
+            message;
+
+    }
+
+}
+
+</script>
+
+{% endblock %}

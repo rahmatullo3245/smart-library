@@ -1,0 +1,1166 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}Statistika — AI Library Studio{% endblock %}
+
+{% block page_title %}
+    Statistika
+{% endblock %}
+
+{% block content %}
+
+<div class="statistics-page">
+
+    <!-- Header -->
+    <div class="statistics-hero">
+
+        <div>
+            <div class="hero-badge">
+                📊 Learning Analytics
+            </div>
+
+            <h2>O‘qish natijalaringiz</h2>
+
+            <p>
+                AI bilan o‘rganish jarayoningiz, quiz natijalaringiz
+                va roadmap progressini shu yerda kuzating.
+            </p>
+        </div>
+
+        <div class="statistics-hero-icon">
+            📈
+        </div>
+
+    </div>
+
+
+    <!-- Demo notice -->
+    <div class="demo-notice">
+        <span>ℹ️</span>
+
+        <div>
+            <strong>Demo statistika</strong>
+            <p>
+                Hozircha namunaviy ma’lumotlar ko‘rsatilmoqda.
+                Keyinchalik bu ma’lumotlar sizning haqiqiy
+                o‘qish faoliyatingizdan olinadi.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Main stats -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon purple">
+                📚
+            </div>
+
+            <div class="stat-info">
+                <span>O‘qilgan kitoblar</span>
+                <strong>12</strong>
+                <small>+3 bu oy</small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon blue">
+                📄
+            </div>
+
+            <div class="stat-info">
+                <span>O‘qilgan sahifalar</span>
+                <strong>847</strong>
+                <small>+124 bu oy</small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                🧠
+            </div>
+
+            <div class="stat-info">
+                <span>Quizlar</span>
+                <strong>27</strong>
+                <small>23 ta yakunlangan</small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                🎯
+            </div>
+
+            <div class="stat-info">
+                <span>O‘rtacha natija</span>
+                <strong>84%</strong>
+                <small>+6% o‘sish</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Progress -->
+    <div class="content-grid">
+
+        <div class="statistics-card">
+
+            <div class="section-header">
+
+                <div>
+                    <h3>Roadmap progressi</h3>
+                    <p>
+                        Hozirgi o‘quv yo‘nalishlaringiz
+                    </p>
+                </div>
+
+                <span class="period-badge">
+                    2026
+                </span>
+
+            </div>
+
+
+            <div class="roadmap-stat">
+
+                <div class="roadmap-stat-top">
+
+                    <div>
+                        <strong>Tarix</strong>
+                        <span>8 haftalik roadmap</span>
+                    </div>
+
+                    <strong>63%</strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-value purple-progress"
+                        style="width: 63%;"
+                    ></div>
+                </div>
+
+                <div class="roadmap-stat-bottom">
+                    <span>5 / 8 hafta</span>
+                    <span>2 hafta qoldi</span>
+                </div>
+
+            </div>
+
+
+            <div class="roadmap-stat">
+
+                <div class="roadmap-stat-top">
+
+                    <div>
+                        <strong>Dasturlash</strong>
+                        <span>12 haftalik roadmap</span>
+                    </div>
+
+                    <strong>35%</strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-value blue-progress"
+                        style="width: 35%;"
+                    ></div>
+                </div>
+
+                <div class="roadmap-stat-bottom">
+                    <span>4 / 12 hafta</span>
+                    <span>8 hafta qoldi</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Quiz result -->
+        <div class="statistics-card">
+
+            <div class="section-header">
+
+                <div>
+                    <h3>Quiz natijalari</h3>
+                    <p>
+                        So‘nggi testlar
+                    </p>
+                </div>
+
+                <span class="result-icon">
+                    🧠
+                </span>
+
+            </div>
+
+
+            <div class="quiz-result-list">
+
+                <div class="quiz-result-item">
+
+                    <div class="quiz-result-icon">
+                        📖
+                    </div>
+
+                    <div class="quiz-result-info">
+                        <strong>Shohnoma</strong>
+                        <span>20 ta savol</span>
+                    </div>
+
+                    <div class="quiz-score good">
+                        90%
+                    </div>
+
+                </div>
+
+
+                <div class="quiz-result-item">
+
+                    <div class="quiz-result-icon">
+                        📐
+                    </div>
+
+                    <div class="quiz-result-info">
+                        <strong>Matematika</strong>
+                        <span>25 ta savol</span>
+                    </div>
+
+                    <div class="quiz-score good">
+                        84%
+                    </div>
+
+                </div>
+
+
+                <div class="quiz-result-item">
+
+                    <div class="quiz-result-icon">
+                        🏛️
+                    </div>
+
+                    <div class="quiz-result-info">
+                        <strong>Jahon tarixi</strong>
+                        <span>20 ta savol</span>
+                    </div>
+
+                    <div class="quiz-score average">
+                        72%
+                    </div>
+
+                </div>
+
+
+                <div class="quiz-result-item">
+
+                    <div class="quiz-result-icon">
+                        💻
+                    </div>
+
+                    <div class="quiz-result-info">
+                        <strong>Dasturlash asoslari</strong>
+                        <span>30 ta savol</span>
+                    </div>
+
+                    <div class="quiz-score good">
+                        88%
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Monthly activity -->
+    <div class="statistics-card activity-card">
+
+        <div class="section-header">
+
+            <div>
+                <h3>O‘qish faolligi</h3>
+
+                <p>
+                    So‘nggi 6 oy davomida o‘qilgan sahifalar
+                </p>
+            </div>
+
+            <span class="period-badge">
+                Oxirgi 6 oy
+            </span>
+
+        </div>
+
+
+        <div class="activity-chart">
+
+            <div class="chart-y">
+                <span>200</span>
+                <span>150</span>
+                <span>100</span>
+                <span>50</span>
+                <span>0</span>
+            </div>
+
+            <div class="chart-area">
+
+                <div class="chart-grid-lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="bars">
+
+                    <div class="bar-column">
+                        <div
+                            class="bar"
+                            style="height: 35%;"
+                        ></div>
+                        <span>May</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div
+                            class="bar"
+                            style="height: 52%;"
+                        ></div>
+                        <span>Iyun</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div
+                            class="bar"
+                            style="height: 45%;"
+                        ></div>
+                        <span>Iyul</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div
+                            class="bar"
+                            style="height: 68%;"
+                        ></div>
+                        <span>Avg</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div
+                            class="bar"
+                            style="height: 78%;"
+                        ></div>
+                        <span>Sen</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div
+                            class="bar current"
+                            style="height: 92%;"
+                        ></div>
+                        <span>Okt</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI insights -->
+    <div class="statistics-card insights-card">
+
+        <div class="section-header">
+
+            <div>
+                <h3>🤖 AI tavsiyalari</h3>
+
+                <p>
+                    Statistikangiz asosida
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="insights-grid">
+
+            <div class="insight-item positive">
+
+                <div class="insight-icon">
+                    📈
+                </div>
+
+                <div>
+                    <strong>Natijangiz yaxshilanmoqda</strong>
+
+                    <p>
+                        So‘nggi quizlarda o‘rtacha natijangiz
+                        6% ga oshgan.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="insight-item warning">
+
+                <div class="insight-icon">
+                    💡
+                </div>
+
+                <div>
+                    <strong>Takrorlash kerak</strong>
+
+                    <p>
+                        Tarix bo‘yicha ayrim mavzularda
+                        natija 70% dan past.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="insight-item purple">
+
+                <div class="insight-icon">
+                    🎯
+                </div>
+
+                <div>
+                    <strong>Roadmapni davom ettiring</strong>
+
+                    <p>
+                        Haftasiga kamida 3 ta o‘quv sessiyasi
+                        tavsiya qilinadi.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_css %}
+
+<style>
+
+.statistics-page {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* Hero */
+
+.statistics-hero {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 30px;
+
+    margin-bottom: 20px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f5f3ff
+        );
+
+    border: 1px solid #e0e7ff;
+}
+
+.hero-badge {
+    display: inline-flex;
+
+    padding: 6px 12px;
+
+    margin-bottom: 10px;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    color: #6366f1;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.statistics-hero h2 {
+    margin: 0 0 8px;
+
+    color: #0f172a;
+
+    font-size: 27px;
+}
+
+.statistics-hero p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    line-height: 1.6;
+}
+
+.statistics-hero-icon {
+    width: 82px;
+    height: 82px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    font-size: 42px;
+
+    box-shadow:
+        0 8px 25px rgba(99, 102, 241, 0.12);
+}
+
+
+/* Demo notice */
+
+.demo-notice {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    background: #fffbeb;
+
+    border: 1px solid #fde68a;
+
+    color: #92400e;
+}
+
+.demo-notice > span {
+    font-size: 18px;
+}
+
+.demo-notice strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+}
+
+.demo-notice p {
+    margin: 0;
+
+    color: #a16207;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* Stats */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 3px 10px rgba(15, 23, 42, 0.04);
+}
+
+.stat-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    font-size: 21px;
+}
+
+.stat-icon.purple {
+    background: #f3e8ff;
+}
+
+.stat-icon.blue {
+    background: #dbeafe;
+}
+
+.stat-icon.green {
+    background: #d1fae5;
+}
+
+.stat-icon.orange {
+    background: #fef3c7;
+}
+
+.stat-info span {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+.stat-info strong {
+    display: block;
+
+    margin: 2px 0;
+
+    color: #0f172a;
+
+    font-size: 22px;
+}
+
+.stat-info small {
+    color: #10b981;
+
+    font-size: 11px;
+}
+
+
+/* Cards */
+
+.content-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.statistics-card {
+    padding: 24px;
+
+    margin-bottom: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.content-grid .statistics-card {
+    margin-bottom: 0;
+}
+
+.section-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.section-header h3 {
+    margin: 0 0 4px;
+
+    color: #0f172a;
+
+    font-size: 17px;
+}
+
+.section-header p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+.period-badge {
+    padding: 6px 10px;
+
+    border-radius: 7px;
+
+    background: #f1f5f9;
+
+    color: #64748b;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* Roadmap */
+
+.roadmap-stat {
+    margin-bottom: 22px;
+}
+
+.roadmap-stat:last-child {
+    margin-bottom: 0;
+}
+
+.roadmap-stat-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+.roadmap-stat-top div strong {
+    display: block;
+
+    color: #0f172a;
+
+    font-size: 14px;
+}
+
+.roadmap-stat-top div span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+.roadmap-stat-top > strong {
+    color: #4f46e5;
+
+    font-size: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #f1f5f9;
+}
+
+.progress-value {
+    height: 100%;
+
+    border-radius: inherit;
+}
+
+.purple-progress {
+    background: #6366f1;
+}
+
+.blue-progress {
+    background: #3b82f6;
+}
+
+.roadmap-stat-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 6px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+
+/* Quiz */
+
+.result-icon {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #eef2ff;
+
+    font-size: 17px;
+}
+
+.quiz-result-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.quiz-result-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+}
+
+.quiz-result-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    font-size: 16px;
+}
+
+.quiz-result-info {
+    flex: 1;
+}
+
+.quiz-result-info strong {
+    display: block;
+
+    color: #334155;
+
+    font-size: 12px;
+}
+
+.quiz-result-info span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+.quiz-score {
+    font-weight: 700;
+
+    font-size: 13px;
+}
+
+.quiz-score.good {
+    color: #059669;
+}
+
+.quiz-score.average {
+    color: #d97706;
+}
+
+
+/* Activity chart */
+
+.activity-chart {
+    display: flex;
+
+    height: 220px;
+
+    gap: 12px;
+}
+
+.chart-y {
+    width: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding-bottom: 25px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    text-align: right;
+}
+
+.chart-area {
+    position: relative;
+
+    flex: 1;
+}
+
+.chart-grid-lines {
+    position: absolute;
+
+    inset: 0 0 25px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.chart-grid-lines span {
+    width: 100%;
+
+    height: 1px;
+
+    background: #f1f5f9;
+}
+
+.bars {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-around;
+
+    gap: 15px;
+
+    padding: 0 10px;
+}
+
+.bar-column {
+    height: 100%;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 8px;
+}
+
+.bar {
+    width: 70%;
+
+    min-width: 18px;
+
+    max-width: 45px;
+
+    border-radius:
+        6px 6px 3px 3px;
+
+    background: #c7d2fe;
+}
+
+.bar.current {
+    background: #6366f1;
+}
+
+.bar-column span {
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+
+/* Insights */
+
+.insights-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.insight-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 11px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+}
+
+.insight-icon {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    font-size: 16px;
+}
+
+.insight-item strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #334155;
+
+    font-size: 12px;
+}
+
+.insight-item p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .statistics-hero {
+        padding: 22px;
+    }
+
+    .statistics-hero-icon {
+        display: none;
+    }
+
+    .statistics-hero h2 {
+        font-size: 23px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics-card {
+        padding: 18px;
+    }
+
+    .activity-chart {
+        height: 180px;
+    }
+
+}
+
+</style>
+
+{% endblock %}
+```

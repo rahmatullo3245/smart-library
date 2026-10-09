@@ -1,0 +1,37 @@
+fastapi==0.110.0
+uvicorn[standard]==0.28.0
+jinja2==3.1.3
+python-multipart==0.0.9
+pyjwt==2.8.0
+
+# Async ORM & Databases
+sqlalchemy[asyncio]==2.0.28
+asyncpg==0.29.0
+aiomysql==0.2.0
+pgvector==0.2.5
+
+# Migrations & Sync DB Drivers
+alembic==1.13.1
+psycopg2-binary==2.9.9
+
+# Redis & Celery
+redis==5.0.3
+celery==5.3.6
+
+# HTTP Client for Ollama
+httpx==0.27.0
+
+# Document Parsers
+pypdf==4.1.0
+python-docx==1.1.0
+pytesseract==0.3.10
+pdf2image==1.17.0
+
+# Env configuration
+python-dotenv==1.0.1
+pydantic-settings==2.2.1
+
+sqladmin>=0.16.0
+wtforms
+itsdangerous
+passlib

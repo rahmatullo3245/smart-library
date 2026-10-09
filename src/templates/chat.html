@@ -1,0 +1,1047 @@
+{% extends "base.html" %}
+
+{% block title %}AI Assistant{% endblock %}
+
+{% block page_title %}AI Assistant{% endblock %}
+
+{% block content %}
+
+<div class="chat-page">
+
+```
+<!-- Intro -->
+<div class="chat-intro">
+    <div class="chat-intro-icon">🤖</div>
+
+    <div>
+        <h2>AI Assistant</h2>
+        <p>
+            Savolingizni yozing. AI sizga tushuntirish beradi
+            va kerak bo‘lsa kutubxonadagi kitoblarni tavsiya qiladi.
+        </p>
+    </div>
+</div>
+
+
+<!-- Chat container -->
+<div class="chat-container">
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chat-messages">
+
+        <!-- AI welcome message -->
+        <div class="message-row ai-row">
+
+            <div class="message-avatar ai-avatar">
+                🤖
+            </div>
+
+            <div class="message-content">
+
+                <div class="message-author">
+                    AI Assistant
+                </div>
+
+                <div class="message-bubble ai-bubble">
+                    <p>
+                        Assalomu alaykum! 👋
+                    </p>
+
+                    <p>
+                        Men sizning AI o‘quv yordamchingizman.
+                        Istalgan mavzu bo‘yicha savol berishingiz mumkin.
+                    </p>
+
+                    <p>
+                        Masalan:
+                    </p>
+
+                    <div class="example-question">
+                        <button type="button"
+                                class="example-btn"
+                                onclick="useQuestion('Diskriminant formulasi qanday?')">
+                            💡 Diskriminant formulasi qanday?
+                        </button>
+
+                        <button type="button"
+                                class="example-btn"
+                                onclick="useQuestion('Python dasturlash tilini qanday o‘rganishni boshlash kerak?')">
+                            💡 Pythonni qanday o‘rganish kerak?
+                        </button>
+
+                        <button type="button"
+                                class="example-btn"
+                                onclick="useQuestion('Sun’iy intellekt nima?')">
+                            💡 Sun’iy intellekt nima?
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="message-time">
+                    Hozir
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Typing indicator -->
+    <div class="typing-indicator" id="typing-indicator">
+
+        <div class="message-avatar ai-avatar">
+            🤖
+        </div>
+
+        <div class="typing-content">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </div>
+
+
+    <!-- Input area -->
+    <div class="chat-input-area">
+
+        <div class="chat-input-wrapper">
+
+            <textarea
+                id="chat-input"
+                class="chat-input"
+                rows="1"
+                placeholder="Savolingizni yozing..."
+                maxlength="5000"
+            ></textarea>
+
+            <button
+                type="button"
+                id="send-message-btn"
+                class="send-btn"
+                title="Yuborish"
+            >
+                ➤
+            </button>
+
+        </div>
+
+        <div class="input-footer">
+
+            <span>
+                AI xatolarga yo‘l qo‘yishi mumkin. Muhim ma'lumotlarni tekshiring.
+            </span>
+
+            <span id="character-count">
+                0 / 5000
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Book source example -->
+<div class="chat-sources-demo">
+
+    <div class="sources-header">
+        <span class="sources-icon">📚</span>
+
+        <div>
+            <strong>Kitob manbalari</strong>
+            <span>
+                AI javobida foydalanilgan manbalar shu yerda ko‘rsatiladi.
+            </span>
+        </div>
+    </div>
+
+    <div class="source-card">
+
+        <div class="source-book-icon">
+            📖
+        </div>
+
+        <div class="source-info">
+
+            <strong>Matematika</strong>
+
+            <span>
+                Diskriminant va kvadrat tenglamalar
+            </span>
+
+            <small>
+                15-bet
+            </small>
+
+        </div>
+
+        <button type="button" class="source-btn">
+            Ko‘rish
+        </button>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+    /* =========================
+       CHAT PAGE
+    ========================= */
+
+    .chat-page {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .chat-intro {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        margin-bottom: 20px;
+        padding: 20px 22px;
+
+        background: linear-gradient(
+            135deg,
+            #eef2ff,
+            #f5f3ff
+        );
+
+        border: 1px solid #e0e7ff;
+        border-radius: var(--radius-lg);
+    }
+
+    .chat-intro-icon {
+        width: 52px;
+        height: 52px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+
+        background: white;
+        border-radius: 14px;
+
+        font-size: 26px;
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .chat-intro h2 {
+        margin: 0 0 5px;
+
+        font-size: 20px;
+        color: var(--text);
+    }
+
+    .chat-intro p {
+        margin: 0;
+
+        color: var(--text-secondary);
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+
+    /* =========================
+       CHAT CONTAINER
+    ========================= */
+
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+
+        height: 600px;
+
+        background: var(--surface);
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+
+        box-shadow: var(--shadow-sm);
+
+        overflow: hidden;
+    }
+
+
+    /* =========================
+       MESSAGES
+    ========================= */
+
+    .chat-messages {
+        flex: 1;
+
+        overflow-y: auto;
+
+        padding: 25px;
+
+        scroll-behavior: smooth;
+    }
+
+    .message-row {
+        display: flex;
+        gap: 12px;
+
+        margin-bottom: 22px;
+
+        max-width: 850px;
+    }
+
+    .ai-row {
+        align-items: flex-start;
+    }
+
+    .message-avatar {
+        width: 38px;
+        height: 38px;
+
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 11px;
+
+        font-size: 18px;
+    }
+
+    .ai-avatar {
+        background: var(--primary-light);
+    }
+
+    .message-content {
+        min-width: 0;
+    }
+
+    .message-author {
+        margin-bottom: 5px;
+
+        font-size: 12px;
+        font-weight: 600;
+
+        color: var(--text-secondary);
+    }
+
+    .message-bubble {
+        padding: 14px 17px;
+
+        border-radius: 5px 16px 16px 16px;
+
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .message-bubble p {
+        margin: 0 0 10px;
+    }
+
+    .message-bubble p:last-child {
+        margin-bottom: 0;
+    }
+
+    .ai-bubble {
+        background: #f8fafc;
+        border: 1px solid var(--border);
+
+        color: var(--text);
+    }
+
+    .message-time {
+        margin-top: 5px;
+
+        font-size: 11px;
+
+        color: var(--text-muted);
+    }
+
+
+    /* =========================
+       EXAMPLE QUESTIONS
+    ========================= */
+
+    .example-question {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        margin-top: 12px;
+    }
+
+    .example-btn {
+        width: fit-content;
+
+        padding: 8px 12px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: 9px;
+
+        color: var(--text-secondary);
+
+        font-size: 12px;
+
+        cursor: pointer;
+
+        transition: all 0.2s ease;
+    }
+
+    .example-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: var(--primary-light);
+    }
+
+
+    /* =========================
+       TYPING INDICATOR
+    ========================= */
+
+    .typing-indicator {
+        display: none;
+
+        align-items: center;
+        gap: 12px;
+
+        padding: 0 25px 15px;
+    }
+
+    .typing-content {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        padding: 11px 14px;
+
+        background: #f8fafc;
+
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .typing-content span {
+        width: 6px;
+        height: 6px;
+
+        background: var(--text-muted);
+
+        border-radius: 50%;
+
+        animation: typing 1.3s infinite;
+    }
+
+    .typing-content span:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+
+    .typing-content span:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    @keyframes typing {
+
+        0%, 60%, 100% {
+            transform: translateY(0);
+            opacity: 0.4;
+        }
+
+        30% {
+            transform: translateY(-4px);
+            opacity: 1;
+        }
+
+    }
+
+
+    /* =========================
+       INPUT
+    ========================= */
+
+    .chat-input-area {
+        padding: 15px 20px 12px;
+
+        border-top: 1px solid var(--border);
+
+        background: white;
+    }
+
+    .chat-input-wrapper {
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+
+        padding: 8px 8px 8px 14px;
+
+        border: 1px solid var(--border);
+        border-radius: 14px;
+
+        background: #f8fafc;
+
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .chat-input-wrapper:focus-within {
+        border-color: var(--primary);
+
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+
+        background: white;
+    }
+
+    .chat-input {
+        flex: 1;
+
+        min-height: 24px;
+        max-height: 120px;
+
+        resize: none;
+
+        border: none;
+        outline: none;
+
+        background: transparent;
+
+        color: var(--text);
+
+        font-family: inherit;
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .chat-input::placeholder {
+        color: var(--text-muted);
+    }
+
+    .send-btn {
+        width: 40px;
+        height: 40px;
+
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        border-radius: 11px;
+
+        background: var(--primary);
+
+        color: white;
+
+        font-size: 18px;
+
+        cursor: pointer;
+
+        transition: all 0.2s ease;
+    }
+
+    .send-btn:hover {
+        background: var(--primary-dark);
+
+        transform: translateY(-1px);
+    }
+
+    .send-btn:active {
+        transform: translateY(0);
+    }
+
+    .send-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .input-footer {
+        display: flex;
+        justify-content: space-between;
+
+        margin-top: 7px;
+
+        font-size: 11px;
+
+        color: var(--text-muted);
+    }
+
+
+    /* =========================
+       SOURCES
+    ========================= */
+
+    .chat-sources-demo {
+        margin-top: 18px;
+
+        padding: 18px 20px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .sources-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        margin-bottom: 14px;
+    }
+
+    .sources-icon {
+        font-size: 20px;
+    }
+
+    .sources-header strong {
+        display: block;
+
+        font-size: 14px;
+
+        color: var(--text);
+    }
+
+    .sources-header span {
+        display: block;
+
+        margin-top: 2px;
+
+        font-size: 11px;
+
+        color: var(--text-muted);
+    }
+
+    .source-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        padding: 12px;
+
+        border: 1px solid var(--border);
+        border-radius: 11px;
+
+        background: #f8fafc;
+    }
+
+    .source-book-icon {
+        width: 38px;
+        height: 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: white;
+
+        border-radius: 9px;
+
+        font-size: 18px;
+    }
+
+    .source-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .source-info strong {
+        display: block;
+
+        font-size: 13px;
+
+        color: var(--text);
+    }
+
+    .source-info span {
+        display: block;
+
+        margin-top: 2px;
+
+        font-size: 12px;
+
+        color: var(--text-secondary);
+    }
+
+    .source-info small {
+        display: block;
+
+        margin-top: 3px;
+
+        font-size: 11px;
+
+        color: var(--primary);
+
+        font-weight: 600;
+    }
+
+    .source-btn {
+        padding: 7px 11px;
+
+        border: 1px solid var(--border);
+        border-radius: 8px;
+
+        background: white;
+
+        color: var(--text-secondary);
+
+        font-size: 11px;
+
+        cursor: pointer;
+    }
+
+    .source-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 768px) {
+
+        .chat-intro {
+            padding: 15px;
+        }
+
+        .chat-intro-icon {
+            width: 44px;
+            height: 44px;
+
+            font-size: 22px;
+        }
+
+        .chat-intro h2 {
+            font-size: 17px;
+        }
+
+        .chat-intro p {
+            font-size: 12px;
+        }
+
+        .chat-container {
+            height: calc(100vh - 230px);
+            min-height: 480px;
+        }
+
+        .chat-messages {
+            padding: 18px;
+        }
+
+        .typing-indicator {
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+
+        .message-row {
+            gap: 8px;
+        }
+
+        .message-avatar {
+            width: 34px;
+            height: 34px;
+        }
+
+        .message-bubble {
+            font-size: 13px;
+        }
+
+        .chat-input-area {
+            padding: 12px;
+        }
+
+        .chat-sources-demo {
+            display: none;
+        }
+
+    }
+
+</style>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+
+    const chatInput = document.getElementById("chat-input");
+    const sendButton = document.getElementById("send-message-btn");
+    const characterCount = document.getElementById("character-count");
+    const messagesContainer = document.getElementById("chat-messages");
+
+
+    /*
+     * Example question
+     */
+    function useQuestion(question) {
+
+        chatInput.value = question;
+
+        updateCharacterCount();
+
+        chatInput.focus();
+
+        autoResize();
+
+    }
+
+
+    /*
+     * Character counter
+     */
+    function updateCharacterCount() {
+
+        const length = chatInput.value.length;
+
+        characterCount.textContent = `${length} / 5000`;
+
+    }
+
+
+    /*
+     * Auto resize textarea
+     */
+    function autoResize() {
+
+        chatInput.style.height = "auto";
+
+        chatInput.style.height =
+            Math.min(chatInput.scrollHeight, 120) + "px";
+
+    }
+
+
+    /*
+     * Add user message
+     */
+    function addUserMessage(message) {
+
+        const row = document.createElement("div");
+
+        row.className = "message-row";
+
+        row.style.justifyContent = "flex-end";
+
+        row.innerHTML = `
+
+            <div class="message-content" style="max-width: 75%;">
+
+                <div class="message-author" style="text-align:right;">
+                    Siz
+                </div>
+
+                <div
+                    class="message-bubble"
+                    style="
+                        background:#6366f1;
+                        color:white;
+                        border-radius:16px 5px 16px 16px;
+                    "
+                >
+                    ${escapeHtml(message)}
+                </div>
+
+                <div class="message-time" style="text-align:right;">
+                    Hozir
+                </div>
+
+            </div>
+
+            <div
+                class="message-avatar"
+                style="background:#eef2ff;"
+            >
+                👤
+            </div>
+
+        `;
+
+        messagesContainer.appendChild(row);
+
+        scrollToBottom();
+
+    }
+
+
+    /*
+     * Temporary AI response
+     *
+     * Hozircha backendga ulanmagan.
+     * Keyinchalik shu joy /api/v1/chat/stream
+     * bilan almashtiriladi.
+     */
+    function addDemoResponse() {
+
+        const row = document.createElement("div");
+
+        row.className = "message-row ai-row";
+
+        row.innerHTML = `
+
+            <div class="message-avatar ai-avatar">
+                🤖
+            </div>
+
+            <div class="message-content">
+
+                <div class="message-author">
+                    AI Assistant
+                </div>
+
+                <div class="message-bubble ai-bubble">
+
+                    <p>
+                        Savolingiz qabul qilindi. 🤖
+                    </p>
+
+                    <p>
+                        Hozircha AI backend ulanmagan.
+                        Keyingi bosqichda bu javob o‘rniga
+                        haqiqiy AI javobi va kitob manbalari chiqadi.
+                    </p>
+
+                </div>
+
+                <div class="message-time">
+                    Hozir
+                </div>
+
+            </div>
+
+        `;
+
+        messagesContainer.appendChild(row);
+
+        scrollToBottom();
+
+    }
+
+
+    /*
+     * Send message
+     */
+    function sendMessage() {
+
+        const message = chatInput.value.trim();
+
+        if (!message) {
+            return;
+        }
+
+        addUserMessage(message);
+
+        chatInput.value = "";
+
+        updateCharacterCount();
+
+        autoResize();
+
+        /*
+         * Hozircha demo response.
+         */
+        setTimeout(() => {
+
+            addDemoResponse();
+
+        }, 500);
+
+    }
+
+
+    /*
+     * Enter = send
+     * Shift + Enter = new line
+     */
+    chatInput.addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter" && !event.shiftKey) {
+
+            event.preventDefault();
+
+            sendMessage();
+
+        }
+
+    });
+
+
+    /*
+     * Button
+     */
+    sendButton.addEventListener("click", sendMessage);
+
+
+    /*
+     * Input events
+     */
+    chatInput.addEventListener("input", function() {
+
+        updateCharacterCount();
+
+        autoResize();
+
+    });
+
+
+    /*
+     * Scroll
+     */
+    function scrollToBottom() {
+
+        messagesContainer.scrollTop =
+            messagesContainer.scrollHeight;
+
+    }
+
+
+    /*
+     * HTML escape
+     */
+    function escapeHtml(text) {
+
+        const div = document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
+
+    }
+
+
+    /*
+     * Initial state
+     */
+    updateCharacterCount();
+
+    autoResize();
+
+    scrollToBottom();
+
+</script>
+
+{% endblock %}

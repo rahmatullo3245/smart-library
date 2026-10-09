@@ -1,0 +1,1439 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}Roadmap — AI Library Studio{% endblock %}
+
+{% block page_title %}
+    Shaxsiy Roadmap
+{% endblock %}
+
+{% block content %}
+
+<div class="roadmap-page">
+
+    <!-- Intro -->
+    <div class="roadmap-hero">
+        <div class="roadmap-hero-content">
+            <div class="hero-badge">
+                🧠 AI Personal Learning
+            </div>
+
+            <h2>
+                Nimani o‘rganmoqchisiz?
+            </h2>
+
+            <p>
+                Maqsadingizni yozing. AI sizga mavjud kitoblar asosida
+                bosqichma-bosqich shaxsiy o‘quv yo‘lini tuzadi.
+            </p>
+        </div>
+
+        <div class="roadmap-hero-icon">
+            🗺️
+        </div>
+    </div>
+
+
+    <!-- Goal form -->
+    <div class="roadmap-card goal-card">
+
+        <div class="card-heading">
+            <div class="card-icon purple">
+                🎯
+            </div>
+
+            <div>
+                <h3>O‘quv maqsadingiz</h3>
+                <p>
+                    Qaysi fan yoki yo‘nalishni o‘rganmoqchisiz?
+                </p>
+            </div>
+        </div>
+
+        <div class="goal-input-wrapper">
+
+            <label for="goal-input">
+                Masalan:
+            </label>
+
+            <textarea
+                id="goal-input"
+                class="goal-input"
+                rows="3"
+                maxlength="500"
+                placeholder="Masalan: Men tarixni noldan o‘rganmoqchiman..."
+            ></textarea>
+
+            <div class="input-footer">
+                <span id="goal-counter">0 / 500</span>
+
+                <button
+                    type="button"
+                    id="generate-roadmap-btn"
+                    class="primary-btn"
+                >
+                    <span>🪄</span>
+                    Roadmap tuzish
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Suggested goals -->
+    <div class="roadmap-card">
+
+        <div class="card-heading">
+            <div class="card-icon blue">
+                💡
+            </div>
+
+            <div>
+                <h3>Tayyor yo‘nalishlar</h3>
+                <p>
+                    Boshlash uchun birini tanlashingiz mumkin
+                </p>
+            </div>
+        </div>
+
+        <div class="suggestion-grid">
+
+            <button
+                type="button"
+                class="suggestion-item"
+                data-goal="Men tarixni noldan o‘rganmoqchiman"
+            >
+                <span class="suggestion-icon">🏛️</span>
+
+                <span>
+                    <strong>Tarix</strong>
+                    <small>Noldan boshlab</small>
+                </span>
+
+                <span class="suggestion-arrow">→</span>
+            </button>
+
+
+            <button
+                type="button"
+                class="suggestion-item"
+                data-goal="Men matematikani yaxshilamoqchiman"
+            >
+                <span class="suggestion-icon">📐</span>
+
+                <span>
+                    <strong>Matematika</strong>
+                    <small>Asosiy bilimlardan</small>
+                </span>
+
+                <span class="suggestion-arrow">→</span>
+            </button>
+
+
+            <button
+                type="button"
+                class="suggestion-item"
+                data-goal="Men dasturlashni o‘rganmoqchiman"
+            >
+                <span class="suggestion-icon">💻</span>
+
+                <span>
+                    <strong>Dasturlash</strong>
+                    <small>Amaliy yo‘nalish</small>
+                </span>
+
+                <span class="suggestion-arrow">→</span>
+            </button>
+
+
+            <button
+                type="button"
+                class="suggestion-item"
+                data-goal="Men ingliz tilini o‘rganmoqchiman"
+            >
+                <span class="suggestion-icon">🌎</span>
+
+                <span>
+                    <strong>Ingliz tili</strong>
+                    <small>Beginner → Intermediate</small>
+                </span>
+
+                <span class="suggestion-arrow">→</span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Demo roadmap -->
+    <div
+        class="roadmap-card generated-roadmap"
+        id="roadmap-result"
+    >
+
+        <div class="roadmap-result-header">
+
+            <div>
+                <div class="result-label">
+                    🤖 AI tomonidan tuzilgan
+                </div>
+
+                <h3>
+                    Tarixni o‘rganish roadmap'i
+                </h3>
+
+                <p>
+                    Taxminiy davomiylik: <strong>8 hafta</strong>
+                </p>
+            </div>
+
+            <div class="roadmap-progress">
+                <div class="progress-circle">
+                    <span>0%</span>
+                </div>
+
+                <small>Progress</small>
+            </div>
+
+        </div>
+
+
+        <!-- Timeline -->
+
+        <div class="roadmap-timeline">
+
+
+            <!-- Step 1 -->
+            <div class="timeline-item completed">
+
+                <div class="timeline-marker">
+                    ✓
+                </div>
+
+                <div class="timeline-content">
+
+                    <div class="timeline-top">
+                        <span class="week-badge">
+                            1-hafta
+                        </span>
+
+                        <span class="status-badge completed">
+                            Boshlang‘ich
+                        </span>
+                    </div>
+
+                    <h4>
+                        Tarixga kirish
+                    </h4>
+
+                    <p>
+                        Tarix tushunchasi, davrlar va tarixiy manbalar
+                        bilan tanishish.
+                    </p>
+
+                    <div class="timeline-books">
+
+                        <span class="book-chip">
+                            📕 Jahon tarixi
+                        </span>
+
+                        <span class="book-chip">
+                            📄 1–25 bet
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Step 2 -->
+            <div class="timeline-item active">
+
+                <div class="timeline-marker">
+                    2
+                </div>
+
+                <div class="timeline-content">
+
+                    <div class="timeline-top">
+                        <span class="week-badge">
+                            2–3-hafta
+                        </span>
+
+                        <span class="status-badge current">
+                            Hozirgi bosqich
+                        </span>
+                    </div>
+
+                    <h4>
+                        Qadimgi dunyo tarixi
+                    </h4>
+
+                    <p>
+                        Misr, Yunoniston, Rim va qadimgi Sharq
+                        sivilizatsiyalarini o‘rganish.
+                    </p>
+
+                    <div class="timeline-books">
+
+                        <span class="book-chip">
+                            📕 Qadimgi dunyo tarixi
+                        </span>
+
+                        <span class="book-chip">
+                            📄 26–110 bet
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="continue-btn"
+                    >
+                        O‘qishni davom ettirish →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Step 3 -->
+            <div class="timeline-item">
+
+                <div class="timeline-marker">
+                    3
+                </div>
+
+                <div class="timeline-content">
+
+                    <div class="timeline-top">
+                        <span class="week-badge">
+                            4–5-hafta
+                        </span>
+
+                        <span class="status-badge locked">
+                            🔒 Keyingi
+                        </span>
+                    </div>
+
+                    <h4>
+                        O‘rta asrlar
+                    </h4>
+
+                    <p>
+                        O‘rta asrlar davri, davlatlar va muhim
+                        tarixiy voqealarni o‘rganish.
+                    </p>
+
+                    <div class="timeline-books">
+
+                        <span class="book-chip">
+                            📕 O‘rta asrlar tarixi
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Step 4 -->
+            <div class="timeline-item">
+
+                <div class="timeline-marker">
+                    4
+                </div>
+
+                <div class="timeline-content">
+
+                    <div class="timeline-top">
+                        <span class="week-badge">
+                            6–8-hafta
+                        </span>
+
+                        <span class="status-badge locked">
+                            🔒 Keyingi
+                        </span>
+                    </div>
+
+                    <h4>
+                        Zamonaviy tarix
+                    </h4>
+
+                    <p>
+                        XIX–XX asr voqealari va zamonaviy dunyoning
+                        shakllanishi.
+                    </p>
+
+                    <div class="timeline-books">
+
+                        <span class="book-chip">
+                            📕 Zamonaviy tarix
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- How AI works -->
+    <div class="roadmap-card ai-process-card">
+
+        <div class="card-heading">
+            <div class="card-icon green">
+                🤖
+            </div>
+
+            <div>
+                <h3>AI roadmapni qanday tuzadi?</h3>
+                <p>
+                    Siz uchun yo‘lni qanday moslashtirishini ko‘ring.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="ai-process-grid">
+
+            <div class="process-step">
+                <div class="process-number">1</div>
+
+                <div>
+                    <strong>Maqsadni aniqlaydi</strong>
+                    <p>
+                        Siz nimani o‘rganmoqchi ekaningizni tushunadi.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="process-step">
+                <div class="process-number">2</div>
+
+                <div>
+                    <strong>Bilim darajasini baholaydi</strong>
+                    <p>
+                        Sizning boshlang‘ich darajangizni aniqlaydi.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="process-step">
+                <div class="process-number">3</div>
+
+                <div>
+                    <strong>Kitoblarni tanlaydi</strong>
+                    <p>
+                        Kutubxonadagi mos kitob va bo‘limlarni topadi.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="process-step">
+                <div class="process-number">4</div>
+
+                <div>
+                    <strong>Reja tuzadi</strong>
+                    <p>
+                        Muddatlar va bosqichlardan iborat roadmap yaratadi.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_css %}
+
+<style>
+
+.roadmap-page {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* Hero */
+
+.roadmap-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    padding: 32px;
+
+    margin-bottom: 24px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff 0%,
+            #f5f3ff 100%
+        );
+
+    border: 1px solid #e0e7ff;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 12px;
+
+    margin-bottom: 12px;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    color: #6366f1;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.roadmap-hero h2 {
+    margin: 0 0 10px;
+
+    color: #0f172a;
+
+    font-size: 28px;
+}
+
+.roadmap-hero p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    line-height: 1.6;
+}
+
+.roadmap-hero-icon {
+    width: 90px;
+    height: 90px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 24px;
+
+    background: #ffffff;
+
+    font-size: 46px;
+
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.12);
+}
+
+
+/* Cards */
+
+.roadmap-card {
+    padding: 26px;
+
+    margin-bottom: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.card-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+.card-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+}
+
+.card-icon.purple {
+    background: #f3e8ff;
+}
+
+.card-icon.blue {
+    background: #dbeafe;
+}
+
+.card-icon.green {
+    background: #d1fae5;
+}
+
+.card-heading h3 {
+    margin: 0 0 4px;
+
+    color: #0f172a;
+
+    font-size: 18px;
+}
+
+.card-heading p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* Goal */
+
+.goal-input-wrapper label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #475569;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.goal-input {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    resize: vertical;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    color: #0f172a;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    box-sizing: border-box;
+}
+
+.goal-input:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.goal-input::placeholder {
+    color: #94a3b8;
+}
+
+.input-footer {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 10px;
+}
+
+#goal-counter {
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+.primary-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #6366f1;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.primary-btn:hover {
+    background: #4f46e5;
+
+    transform: translateY(-1px);
+}
+
+.primary-btn:disabled {
+    background: #cbd5e1;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* Suggestions */
+
+.suggestion-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.suggestion-item {
+    display: grid;
+
+    grid-template-columns: auto 1fr auto;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 15px;
+
+    text-align: left;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition: 0.2s;
+}
+
+.suggestion-item:hover {
+    background: #eef2ff;
+
+    border-color: #c7d2fe;
+
+    transform: translateY(-1px);
+}
+
+.suggestion-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    font-size: 20px;
+}
+
+.suggestion-item strong {
+    display: block;
+
+    color: #0f172a;
+
+    font-size: 14px;
+}
+
+.suggestion-item small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+.suggestion-arrow {
+    color: #94a3b8;
+
+    font-size: 20px;
+}
+
+
+/* Generated roadmap */
+
+.generated-roadmap {
+    overflow: hidden;
+}
+
+.roadmap-result-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding-bottom: 24px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.result-label {
+    margin-bottom: 7px;
+
+    color: #6366f1;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.roadmap-result-header h3 {
+    margin: 0 0 6px;
+
+    color: #0f172a;
+
+    font-size: 22px;
+}
+
+.roadmap-result-header p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+.roadmap-progress {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.progress-circle {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #6366f1 0deg,
+            #e2e8f0 0deg
+        );
+}
+
+.progress-circle::before {
+    content: "";
+
+    position: absolute;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+}
+
+.progress-circle span {
+    position: relative;
+
+    z-index: 1;
+
+    color: #6366f1;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.roadmap-progress small {
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+
+/* Timeline */
+
+.roadmap-timeline {
+    position: relative;
+
+    padding-top: 25px;
+}
+
+.roadmap-timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 18px;
+    top: 30px;
+    bottom: 30px;
+
+    width: 2px;
+
+    background: #e2e8f0;
+}
+
+.timeline-item {
+    position: relative;
+
+    display: flex;
+
+    gap: 20px;
+
+    padding-bottom: 28px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-marker {
+    position: relative;
+
+    z-index: 2;
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    border: 3px solid #ffffff;
+
+    box-shadow: 0 0 0 1px #e2e8f0;
+
+    color: #64748b;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.timeline-item.completed .timeline-marker {
+    background: #10b981;
+
+    color: #ffffff;
+
+    box-shadow: 0 0 0 1px #10b981;
+}
+
+.timeline-item.active .timeline-marker {
+    background: #6366f1;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 0 1px #6366f1,
+        0 0 0 5px rgba(99, 102, 241, 0.1);
+}
+
+.timeline-content {
+    flex: 1;
+
+    padding: 3px 0;
+}
+
+.timeline-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 7px;
+}
+
+.week-badge {
+    display: inline-flex;
+
+    padding: 4px 9px;
+
+    border-radius: 6px;
+
+    background: #f1f5f9;
+
+    color: #475569;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-badge {
+    display: inline-flex;
+
+    padding: 4px 9px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status-badge.completed {
+    background: #d1fae5;
+
+    color: #047857;
+}
+
+.status-badge.current {
+    background: #eef2ff;
+
+    color: #4f46e5;
+}
+
+.status-badge.locked {
+    background: #f1f5f9;
+
+    color: #64748b;
+}
+
+.timeline-content h4 {
+    margin: 0 0 6px;
+
+    color: #0f172a;
+
+    font-size: 17px;
+}
+
+.timeline-content p {
+    max-width: 700px;
+
+    margin: 0 0 12px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.timeline-books {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.book-chip {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 9px;
+
+    border-radius: 7px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    color: #475569;
+
+    font-size: 12px;
+}
+
+.continue-btn {
+    margin-top: 13px;
+
+    padding: 9px 14px;
+
+    border: 1px solid #c7d2fe;
+
+    border-radius: 9px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.continue-btn:hover {
+    background: #e0e7ff;
+}
+
+
+/* AI process */
+
+.ai-process-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+.process-step {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+}
+
+.process-number {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.process-step strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #0f172a;
+
+    font-size: 14px;
+}
+
+.process-step p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .roadmap-hero {
+        padding: 24px;
+    }
+
+    .roadmap-hero-icon {
+        display: none;
+    }
+
+    .roadmap-hero h2 {
+        font-size: 23px;
+    }
+
+    .suggestion-grid,
+    .ai-process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .roadmap-card {
+        padding: 20px;
+    }
+
+    .roadmap-result-header {
+        align-items: flex-start;
+    }
+
+    .roadmap-timeline::before {
+        left: 17px;
+    }
+
+    .timeline-item {
+        gap: 15px;
+    }
+
+    .input-footer {
+        align-items: flex-end;
+    }
+
+    .primary-btn {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .roadmap-card {
+        padding: 16px;
+    }
+
+    .roadmap-hero {
+        padding: 20px;
+    }
+
+    .input-footer {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .primary-btn {
+        width: 100%;
+    }
+
+    .roadmap-result-header h3 {
+        font-size: 18px;
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const goalInput =
+        document.getElementById("goal-input");
+
+    const goalCounter =
+        document.getElementById("goal-counter");
+
+    const generateBtn =
+        document.getElementById("generate-roadmap-btn");
+
+    const suggestionItems =
+        document.querySelectorAll(".suggestion-item");
+
+
+    /* Character counter */
+
+    function updateCounter() {
+
+        const length = goalInput.value.length;
+
+        goalCounter.textContent =
+            `${length} / 500`;
+
+        generateBtn.disabled =
+            goalInput.value.trim().length === 0;
+    }
+
+
+    goalInput.addEventListener(
+        "input",
+        updateCounter
+    );
+
+
+    /* Suggested goals */
+
+    suggestionItems.forEach(function (item) {
+
+        item.addEventListener(
+            "click",
+            function () {
+
+                const goal =
+                    this.dataset.goal;
+
+                goalInput.value = goal;
+
+                updateCounter();
+
+                goalInput.focus();
+
+                goalInput.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+        );
+
+    });
+
+
+    /* Generate roadmap */
+
+    generateBtn.addEventListener(
+        "click",
+        function () {
+
+            const goal =
+                goalInput.value.trim();
+
+            if (!goal) {
+                return;
+            }
+
+
+            /*
+             * Hozircha demo.
+             *
+             * Keyinchalik:
+             *
+             * POST /api/v1/roadmap
+             *
+             * body:
+             * {
+             *     "goal": goal
+             * }
+             */
+
+            generateBtn.disabled = true;
+
+            generateBtn.innerHTML =
+                "⏳ AI tayyorlamoqda...";
+
+
+            setTimeout(function () {
+
+                generateBtn.disabled = false;
+
+                generateBtn.innerHTML =
+                    "🪄 Roadmap tuzish";
+
+                const roadmapResult =
+                    document.getElementById(
+                        "roadmap-result"
+                    );
+
+                roadmapResult.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 1000);
+
+        }
+    );
+
+
+    /* Continue button */
+
+    const continueBtn =
+        document.querySelector(".continue-btn");
+
+    if (continueBtn) {
+
+        continueBtn.addEventListener(
+            "click",
+            function () {
+
+                alert(
+                    "Kitob o‘qish / AI Assistant integratsiyasi keyingi bosqichda ulanadi."
+                );
+
+            }
+        );
+
+    }
+
+
+    updateCounter();
+
+});
+
+</script>
+
+{% endblock %}
+```

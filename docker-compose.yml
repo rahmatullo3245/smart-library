@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pg_5
+      POSTGRES_DB: library_ai
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  fastapi_ai_studio:
+    build:
+      context: .
+      dockerfile: docker/fastapi.Dockerfile
+    container_name: fastapi_ai_studio
+    restart: always
+    ports:
+      - "8001:8000"
+    volumes:
+      - .:/app
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+
+  celery_parser_worker:
+    build:
+      context: .
+      dockerfile: docker/celery.Dockerfile
+    container_name: celery_parser_worker
+    restart: always
+    volumes:
+      - .:/app
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+      - fastapi_ai_studio
+
+  redis:
+    image: redis:7-alpine
+    container_name: ai_studio_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:

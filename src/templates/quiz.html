@@ -1,0 +1,1403 @@
+{% extends "base.html" %}
+
+{% block title %}Kitobni o‘qidim{% endblock %}
+
+{% block page_title %}Kitobni o‘qidim{% endblock %}
+
+{% block content %}
+
+<div class="quiz-page">
+
+```
+<!-- Intro -->
+<div class="quiz-intro">
+
+    <div class="quiz-intro-icon">
+        📖
+    </div>
+
+    <div>
+        <h2>Kitobni o‘qib tugatdingizmi?</h2>
+
+        <p>
+            O‘qigan kitobingizni tanlang va AI sizning
+            asarni qanchalik yaxshi tushunganingizni tekshiradi.
+        </p>
+    </div>
+
+</div>
+
+
+<!-- Main selection -->
+<div class="quiz-selection-card">
+
+    <div class="section-heading">
+
+        <div>
+            <h3>Kitobni tanlang</h3>
+
+            <p>
+                O‘qib tugatgan kitobingizni ro‘yxatdan tanlang.
+            </p>
+        </div>
+
+        <span class="book-count">
+            0 ta kitob
+        </span>
+
+    </div>
+
+
+    <!-- Search -->
+    <div class="book-search">
+
+        <span class="search-icon">
+            🔍
+        </span>
+
+        <input
+            type="text"
+            id="book-search-input"
+            placeholder="Kitob nomini qidiring..."
+        >
+
+    </div>
+
+
+    <!-- Books -->
+    <div class="books-grid" id="books-grid">
+
+        <!-- Demo book -->
+        <button
+            type="button"
+            class="book-card"
+            data-book-id="demo-1"
+            data-book-title="Shohnoma"
+            onclick="selectBook(this)"
+        >
+
+            <div class="book-cover">
+                📕
+            </div>
+
+            <div class="book-info">
+
+                <strong>Shohnoma</strong>
+
+                <span>
+                    Abulqosim Firdavsiy
+                </span>
+
+                <small>
+                    Demo kitob
+                </small>
+
+            </div>
+
+            <div class="book-check">
+                ✓
+            </div>
+
+        </button>
+
+
+        <!-- Demo book -->
+        <button
+            type="button"
+            class="book-card"
+            data-book-id="demo-2"
+            data-book-title="Matematika"
+            onclick="selectBook(this)"
+        >
+
+            <div class="book-cover book-cover-blue">
+                📘
+            </div>
+
+            <div class="book-info">
+
+                <strong>Matematika</strong>
+
+                <span>
+                    O‘quv qo‘llanma
+                </span>
+
+                <small>
+                    Demo kitob
+                </small>
+
+            </div>
+
+            <div class="book-check">
+                ✓
+            </div>
+
+        </button>
+
+
+        <!-- Demo book -->
+        <button
+            type="button"
+            class="book-card"
+            data-book-id="demo-3"
+            data-book-title="O‘zbek adabiyoti"
+            onclick="selectBook(this)"
+        >
+
+            <div class="book-cover book-cover-green">
+                📗
+            </div>
+
+            <div class="book-info">
+
+                <strong>O‘zbek adabiyoti</strong>
+
+                <span>
+                    Adabiyot to‘plami
+                </span>
+
+                <small>
+                    Demo kitob
+                </small>
+
+            </div>
+
+            <div class="book-check">
+                ✓
+            </div>
+
+        </button>
+
+
+        <!-- Empty state -->
+        <div
+            class="books-empty"
+            id="books-empty"
+            style="display:none;"
+        >
+            <div>📚</div>
+
+            <strong>Kitob topilmadi</strong>
+
+            <span>
+                Boshqa kitob nomini qidirib ko‘ring.
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- Selected book -->
+    <div
+        class="selected-book"
+        id="selected-book"
+        style="display:none;"
+    >
+
+        <div class="selected-book-icon">
+            📖
+        </div>
+
+        <div class="selected-book-info">
+
+            <span>Tanlangan kitob</span>
+
+            <strong id="selected-book-title">
+                —
+            </strong>
+
+        </div>
+
+        <button
+            type="button"
+            class="change-book-btn"
+            onclick="clearBookSelection()"
+        >
+            O‘zgartirish
+        </button>
+
+    </div>
+
+
+    <!-- Start -->
+    <div class="quiz-start">
+
+        <div class="quiz-start-info">
+
+            <span class="start-icon">
+                🧠
+            </span>
+
+            <div>
+
+                <strong>
+                    AI bilimni tekshiradi
+                </strong>
+
+                <p>
+                    Savollar kitob mazmuni, voqealar,
+                    qahramonlar va asosiy g‘oyalar asosida tuziladi.
+                </p>
+
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            class="start-quiz-btn"
+            id="start-quiz-btn"
+            disabled
+            onclick="startQuiz()"
+        >
+            Testni boshlash
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- How it works -->
+<div class="how-it-works">
+
+    <div class="how-title">
+        <h3>Qanday ishlaydi?</h3>
+
+        <p>
+            Kitobni o‘qiganingizni oddiy testdan ko‘ra chuqurroq tekshiramiz.
+        </p>
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <div>
+                <strong>Kitobni tanlang</strong>
+
+                <span>
+                    O‘qib tugatgan kitobingizni belgilang.
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <div>
+                <strong>AI savollar beradi</strong>
+
+                <span>
+                    AI kitob mazmuniga asoslangan savollar yaratadi.
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <div>
+                <strong>Natijani oling</strong>
+
+                <span>
+                    Kuchli va tushunilmagan mavzularingizni ko‘ring.
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Result preview -->
+<div class="result-preview">
+
+    <div class="result-preview-header">
+
+        <div>
+            <h3>Natija qanday ko‘rinadi?</h3>
+
+            <p>
+                Keyinchalik AI sizga batafsil tahlil beradi.
+            </p>
+        </div>
+
+        <span class="preview-badge">
+            PREVIEW
+        </span>
+
+    </div>
+
+
+    <div class="result-stats">
+
+        <div class="result-stat">
+
+            <div class="stat-icon">
+                🎯
+            </div>
+
+            <div>
+                <strong>85%</strong>
+                <span>Umumiy natija</span>
+            </div>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <div class="stat-icon">
+                ✅
+            </div>
+
+            <div>
+                <strong>17 / 20</strong>
+                <span>To‘g‘ri javob</span>
+            </div>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <div class="stat-icon">
+                💡
+            </div>
+
+            <div>
+                <strong>3</strong>
+                <span>Takrorlash kerak</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+    /* =========================
+       QUIZ PAGE
+    ========================= */
+
+    .quiz-page {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .quiz-intro {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        margin-bottom: 20px;
+        padding: 20px 22px;
+
+        background: linear-gradient(
+            135deg,
+            #ecfdf5,
+            #eff6ff
+        );
+
+        border: 1px solid #dbeafe;
+        border-radius: var(--radius-lg);
+    }
+
+    .quiz-intro-icon {
+        width: 52px;
+        height: 52px;
+
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: white;
+
+        border-radius: 14px;
+
+        font-size: 26px;
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-intro h2 {
+        margin: 0 0 5px;
+
+        font-size: 20px;
+
+        color: var(--text);
+    }
+
+    .quiz-intro p {
+        margin: 0;
+
+        font-size: 14px;
+        line-height: 1.5;
+
+        color: var(--text-secondary);
+    }
+
+
+    /* =========================
+       SELECTION CARD
+    ========================= */
+
+    .quiz-selection-card {
+        padding: 24px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .section-heading {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        gap: 20px;
+
+        margin-bottom: 18px;
+    }
+
+    .section-heading h3 {
+        margin: 0 0 4px;
+
+        font-size: 17px;
+
+        color: var(--text);
+    }
+
+    .section-heading p {
+        margin: 0;
+
+        font-size: 12px;
+
+        color: var(--text-secondary);
+    }
+
+    .book-count {
+        padding: 6px 10px;
+
+        background: var(--primary-light);
+
+        color: var(--primary);
+
+        border-radius: 8px;
+
+        font-size: 11px;
+        font-weight: 600;
+
+        white-space: nowrap;
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .book-search {
+        display: flex;
+        align-items: center;
+
+        gap: 9px;
+
+        height: 44px;
+
+        padding: 0 13px;
+
+        background: #f8fafc;
+
+        border: 1px solid var(--border);
+        border-radius: 10px;
+
+        margin-bottom: 16px;
+
+        transition: 0.2s;
+    }
+
+    .book-search:focus-within {
+        background: white;
+
+        border-color: var(--primary);
+
+        box-shadow:
+            0 0 0 3px rgba(99, 102, 241, 0.08);
+    }
+
+    .search-icon {
+        font-size: 15px;
+    }
+
+    .book-search input {
+        width: 100%;
+
+        border: none;
+        outline: none;
+
+        background: transparent;
+
+        font-family: inherit;
+        font-size: 13px;
+
+        color: var(--text);
+    }
+
+    .book-search input::placeholder {
+        color: var(--text-muted);
+    }
+
+
+    /* =========================
+       BOOKS
+    ========================= */
+
+    .books-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .book-card {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        min-width: 0;
+
+        padding: 14px;
+
+        text-align: left;
+
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: 12px;
+
+        cursor: pointer;
+
+        font-family: inherit;
+
+        transition:
+            border-color 0.2s,
+            box-shadow 0.2s,
+            transform 0.2s;
+    }
+
+    .book-card:hover {
+        border-color: #c7d2fe;
+
+        box-shadow: var(--shadow-sm);
+
+        transform: translateY(-1px);
+    }
+
+    .book-card.selected {
+        border-color: var(--primary);
+
+        background: var(--primary-light);
+
+        box-shadow:
+            0 0 0 2px rgba(99, 102, 241, 0.08);
+    }
+
+    .book-cover {
+        width: 48px;
+        height: 62px;
+
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 7px;
+
+        background: #fee2e2;
+
+        font-size: 24px;
+
+        box-shadow:
+            0 3px 8px rgba(15, 23, 42, 0.08);
+    }
+
+    .book-cover-blue {
+        background: #dbeafe;
+    }
+
+    .book-cover-green {
+        background: #dcfce7;
+    }
+
+    .book-info {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .book-info strong {
+        display: block;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        font-size: 13px;
+
+        color: var(--text);
+    }
+
+    .book-info span {
+        display: block;
+
+        margin-top: 4px;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        font-size: 11px;
+
+        color: var(--text-secondary);
+    }
+
+    .book-info small {
+        display: inline-block;
+
+        margin-top: 6px;
+
+        font-size: 9px;
+
+        color: var(--text-muted);
+    }
+
+    .book-check {
+        position: absolute;
+
+        top: 8px;
+        right: 8px;
+
+        width: 19px;
+        height: 19px;
+
+        display: none;
+
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background: var(--primary);
+
+        color: white;
+
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .book-card.selected .book-check {
+        display: flex;
+    }
+
+
+    /* =========================
+       EMPTY
+    ========================= */
+
+    .books-empty {
+        grid-column: 1 / -1;
+
+        padding: 35px;
+
+        text-align: center;
+
+        color: var(--text-muted);
+    }
+
+    .books-empty div {
+        font-size: 30px;
+
+        margin-bottom: 8px;
+    }
+
+    .books-empty strong {
+        display: block;
+
+        font-size: 14px;
+
+        color: var(--text-secondary);
+    }
+
+    .books-empty span {
+        display: block;
+
+        margin-top: 4px;
+
+        font-size: 11px;
+    }
+
+
+    /* =========================
+       SELECTED BOOK
+    ========================= */
+
+    .selected-book {
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        margin-top: 16px;
+
+        padding: 12px 14px;
+
+        background: var(--primary-light);
+
+        border: 1px solid #c7d2fe;
+
+        border-radius: 11px;
+    }
+
+    .selected-book-icon {
+        width: 38px;
+        height: 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: white;
+
+        border-radius: 9px;
+
+        font-size: 18px;
+    }
+
+    .selected-book-info {
+        flex: 1;
+    }
+
+    .selected-book-info span {
+        display: block;
+
+        font-size: 10px;
+
+        color: var(--text-secondary);
+    }
+
+    .selected-book-info strong {
+        display: block;
+
+        margin-top: 2px;
+
+        font-size: 13px;
+
+        color: var(--text);
+    }
+
+    .change-book-btn {
+        padding: 7px 10px;
+
+        background: white;
+
+        border: 1px solid #c7d2fe;
+        border-radius: 8px;
+
+        color: var(--primary);
+
+        font-family: inherit;
+        font-size: 11px;
+
+        cursor: pointer;
+    }
+
+
+    /* =========================
+       START
+    ========================= */
+
+    .quiz-start {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 20px;
+
+        margin-top: 22px;
+        padding-top: 20px;
+
+        border-top: 1px solid var(--border);
+    }
+
+    .quiz-start-info {
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .start-icon {
+        width: 38px;
+        height: 38px;
+
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #fef3c7;
+
+        border-radius: 10px;
+
+        font-size: 18px;
+    }
+
+    .quiz-start-info strong {
+        display: block;
+
+        font-size: 13px;
+
+        color: var(--text);
+    }
+
+    .quiz-start-info p {
+        margin: 3px 0 0;
+
+        max-width: 550px;
+
+        font-size: 11px;
+        line-height: 1.4;
+
+        color: var(--text-secondary);
+    }
+
+    .start-quiz-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 9px;
+
+        min-width: 155px;
+
+        padding: 11px 16px;
+
+        border: none;
+        border-radius: 10px;
+
+        background: var(--primary);
+
+        color: white;
+
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+    }
+
+    .start-quiz-btn:hover:not(:disabled) {
+        background: var(--primary-dark);
+
+        transform: translateY(-1px);
+    }
+
+    .start-quiz-btn:disabled {
+        background: #cbd5e1;
+
+        cursor: not-allowed;
+    }
+
+    .start-quiz-btn span {
+        font-size: 16px;
+    }
+
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .how-it-works {
+        margin-top: 18px;
+
+        padding: 20px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .how-title {
+        margin-bottom: 18px;
+    }
+
+    .how-title h3 {
+        margin: 0 0 4px;
+
+        font-size: 15px;
+
+        color: var(--text);
+    }
+
+    .how-title p {
+        margin: 0;
+
+        font-size: 11px;
+
+        color: var(--text-secondary);
+    }
+
+    .steps {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .step {
+        display: flex;
+
+        gap: 10px;
+
+        padding: 13px;
+
+        background: #f8fafc;
+
+        border: 1px solid var(--border);
+
+        border-radius: 10px;
+    }
+
+    .step-number {
+        width: 27px;
+        height: 27px;
+
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 8px;
+
+        background: var(--primary-light);
+
+        color: var(--primary);
+
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .step strong {
+        display: block;
+
+        font-size: 12px;
+
+        color: var(--text);
+    }
+
+    .step span {
+        display: block;
+
+        margin-top: 3px;
+
+        font-size: 10px;
+        line-height: 1.4;
+
+        color: var(--text-secondary);
+    }
+
+
+    /* =========================
+       RESULT PREVIEW
+    ========================= */
+
+    .result-preview {
+        margin-top: 18px;
+
+        padding: 20px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .result-preview-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        gap: 15px;
+
+        margin-bottom: 15px;
+    }
+
+    .result-preview-header h3 {
+        margin: 0 0 4px;
+
+        font-size: 15px;
+
+        color: var(--text);
+    }
+
+    .result-preview-header p {
+        margin: 0;
+
+        font-size: 11px;
+
+        color: var(--text-secondary);
+    }
+
+    .preview-badge {
+        padding: 5px 8px;
+
+        background: #f1f5f9;
+
+        color: var(--text-muted);
+
+        border-radius: 6px;
+
+        font-size: 9px;
+        font-weight: 700;
+
+        letter-spacing: 0.5px;
+    }
+
+    .result-stats {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .result-stat {
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 13px;
+
+        background: #f8fafc;
+
+        border: 1px solid var(--border);
+
+        border-radius: 10px;
+    }
+
+    .stat-icon {
+        width: 35px;
+        height: 35px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: white;
+
+        border-radius: 9px;
+
+        font-size: 17px;
+    }
+
+    .result-stat strong {
+        display: block;
+
+        font-size: 16px;
+
+        color: var(--text);
+    }
+
+    .result-stat span {
+        display: block;
+
+        margin-top: 2px;
+
+        font-size: 10px;
+
+        color: var(--text-secondary);
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+        .books-grid {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+        }
+
+        .steps {
+            grid-template-columns: 1fr;
+        }
+
+        .result-stats {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        .quiz-intro {
+            padding: 15px;
+        }
+
+        .quiz-intro-icon {
+            width: 44px;
+            height: 44px;
+
+            font-size: 22px;
+        }
+
+        .quiz-intro h2 {
+            font-size: 16px;
+        }
+
+        .quiz-intro p {
+            font-size: 11px;
+        }
+
+        .quiz-selection-card {
+            padding: 16px;
+        }
+
+        .books-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .quiz-start {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .quiz-start-info {
+            align-items: flex-start;
+        }
+
+        .start-quiz-btn {
+            width: 100%;
+        }
+
+        .selected-book {
+            align-items: flex-start;
+        }
+
+        .change-book-btn {
+            margin-left: auto;
+        }
+
+    }
+
+</style>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+
+    const searchInput =
+        document.getElementById("book-search-input");
+
+    const booksGrid =
+        document.getElementById("books-grid");
+
+    const emptyState =
+        document.getElementById("books-empty");
+
+    const selectedBook =
+        document.getElementById("selected-book");
+
+    const selectedBookTitle =
+        document.getElementById("selected-book-title");
+
+    const startButton =
+        document.getElementById("start-quiz-btn");
+
+    let selectedBookId = null;
+
+
+    /*
+     * Select book
+     */
+    function selectBook(bookElement) {
+
+        document
+            .querySelectorAll(".book-card")
+            .forEach(book => {
+                book.classList.remove("selected");
+            });
+
+        bookElement.classList.add("selected");
+
+        selectedBookId =
+            bookElement.dataset.bookId;
+
+        selectedBookTitle.textContent =
+            bookElement.dataset.bookTitle;
+
+        selectedBook.style.display = "flex";
+
+        startButton.disabled = false;
+
+    }
+
+
+    /*
+     * Clear selection
+     */
+    function clearBookSelection() {
+
+        document
+            .querySelectorAll(".book-card")
+            .forEach(book => {
+                book.classList.remove("selected");
+            });
+
+        selectedBookId = null;
+
+        selectedBook.style.display = "none";
+
+        startButton.disabled = true;
+
+    }
+
+
+    /*
+     * Search books
+     */
+    searchInput.addEventListener("input", function() {
+
+        const query =
+            this.value.toLowerCase().trim();
+
+        const books =
+            document.querySelectorAll(".book-card");
+
+        let visibleCount = 0;
+
+        books.forEach(book => {
+
+            const title =
+                book.dataset.bookTitle.toLowerCase();
+
+            if (title.includes(query)) {
+
+                book.style.display = "flex";
+
+                visibleCount++;
+
+            } else {
+
+                book.style.display = "none";
+
+            }
+
+        });
+
+        if (visibleCount === 0) {
+
+            emptyState.style.display = "block";
+
+        } else {
+
+            emptyState.style.display = "none";
+
+        }
+
+    });
+
+
+    /*
+     * Start quiz
+     */
+    function startQuiz() {
+
+        if (!selectedBookId) {
+            return;
+        }
+
+        /*
+         * Hozircha demo.
+         *
+         * Keyinchalik bu joy:
+         *
+         * POST /api/v1/quiz/start
+         *
+         * orqali AI quiz yaratadi.
+         */
+
+        alert(
+            "Test boshlanadi: " +
+            selectedBookTitle.textContent +
+            "\n\nKeyingi bosqichda bu yerga haqiqiy AI testi ulanadi."
+        );
+
+    }
+
+</script>
+
+{% endblock %}
