@@ -4,6 +4,7 @@ from sqlalchemy import Column, BigInteger, String, Boolean, DateTime, Text, Inte
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID
 from src.db.postgres import Base
+from pgvector.sqlalchemy import Vector
 
 
 class User(Base):
@@ -51,11 +52,18 @@ class Book(Base):
 
     id = Column(BigInteger, primary_key=True, autoincrement=True)
     title = Column(String(255), nullable=False)
+    author = Column(String(255), nullable=True)              # qo'shildi
+    language_id = Column(Integer, nullable=True)             # 1=tojik, 2=rus
+    source_id = Column(BigInteger, nullable=True, unique=True)  # Laravel books.id
     file_path = Column(String(500), nullable=False)
-    file_type = Column(String(20), nullable=False)  # pdf, docx, djvu, etc.
-    status = Column(String(50), default="pending")  # pending, processing, completed, failed
+    file_type = Column(String(20), nullable=False)           # pdf, docx, djvu
+    total_pages = Column(Integer, nullable=True)             # qo'shildi
+    total_chunks = Column(Integer, nullable=True)            # qo'shildi
+    status = Column(String(50), default="pending")           # pending, processing, completed, failed
+    error_message = Column(Text, nullable=True)              # xatolik bo'lsa
     uploaded_by = Column(BigInteger, ForeignKey("users.id", ondelete="SET NULL"), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     uploader = relationship("User", back_populates="books")
     chunks = relationship("BookChunk", back_populates="book", cascade="all, delete-orphan")
@@ -69,6 +77,13 @@ class BookChunk(Base):
     chunk_index = Column(Integer, nullable=False)
     content = Column(Text, nullable=False)
     page_number = Column(Integer, nullable=True)
+
+    # --- RAG uchun yangi ustunlar ---
+    embedding = Column(Vector(1024), nullable=True)          # bge-m3 → 1024 o'lcham
+    token_count = Column(Integer, nullable=True)             # chunk hajmi
+    language_id = Column(Integer, nullable=True)             # 1=tojik, 2=rus
+    char_count = Column(Integer, nullable=True)              # belgi soni
+    created_at = Column(DateTime, default=datetime.utcnow)
 
     book = relationship("Book", back_populates="chunks")
 

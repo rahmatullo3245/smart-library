@@ -35,3 +35,11 @@ sqladmin>=0.16.0
 wtforms
 itsdangerous
 passlib
+
+PyMuPDF
+python-docx
+beautifulsoup4
+striprtf
+rarfile
+ebooklib
+pdfplumber

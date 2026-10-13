@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="tg">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}AI Library Studio{% endblock %}</title>
+    <title>{% block title %}Студияи китобхонаи AI{% endblock %}</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', path='css/app.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/app.css') }}">
 
     {% block extra_css %}{% endblock %}
 </head>
@@ -23,47 +22,50 @@
             <div class="brand-icon">🤖</div>
 
             <div class="brand-text">
-                <div class="brand-title">AI Library</div>
-                <div class="brand-subtitle">Studio</div>
+                <div class="brand-title">Китобхонаи AI</div>
+                <div class="brand-subtitle">Студия</div>
             </div>
         </div>
 
         <div class="sidebar-section">
 
             <div class="sidebar-label">
-                ASOSIY
+                АСОСӢ
             </div>
 
             <a href="/" class="nav-item active">
                 <span class="nav-icon">🏠</span>
-                <span>Bosh sahifa</span>
+                <span>Саҳифаи асосӣ</span>
             </a>
 
             <a href="/chat" class="nav-item">
                 <span class="nav-icon">💬</span>
-                <span>AI Assistant</span>
+                <span>Ёвари AI</span>
             </a>
 
             <a href="/quiz" class="nav-item">
                 <span class="nav-icon">📖</span>
-                <span>Kitobni o‘qidim</span>
+                <span>Китобро хондам</span>
             </a>
 
             <a href="/roadmap" class="nav-item">
                 <span class="nav-icon">🗺️</span>
-                <span>Roadmap</span>
+                <span>Роудмап</span>
             </a>
 
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-label">ANALITIKA</div>
+
+            <div class="sidebar-label">ТАҲЛИЛ</div>
 
             <a href="/statistics" class="nav-item">
                 <span class="nav-icon">📊</span>
-                 <span>Statistika</span>
-             </a>
+                <span>Омор</span>
+            </a>
+
         </div>
+
         <div class="sidebar-bottom">
 
             <div class="sidebar-user">
@@ -74,7 +76,7 @@
 
                 <div class="user-details">
                     <div id="sidebar-user-name">
-                        Talaba
+                        Донишҷӯ
                     </div>
 
                     <div id="sidebar-user-id">
@@ -104,23 +106,22 @@
                 <div class="page-title-wrapper">
                     <h1 class="page-title">
                         {% block page_title %}
-                        AI Library Studio
+                            Студияи китобхонаи AI
                         {% endblock %}
                     </h1>
 
                     <p class="page-description">
-                        Shaxsiy AI o‘quv yordamchingiz
+                        Ёвари шахсии омӯзишии шумо бо зеҳни сунъӣ
                     </p>
                 </div>
 
             </div>
 
-
             <div class="topbar-right">
 
                 <div class="system-status">
                     <span class="status-dot"></span>
-                    <span>Tizim faol</span>
+                    <span>Низом фаъол аст</span>
                 </div>
 
                 <div class="header-user">
@@ -131,7 +132,7 @@
 
                     <div class="header-user-info">
                         <div id="header-user-name">
-                            Talaba
+                            Донишҷӯ
                         </div>
 
                         <div id="header-user-id">
@@ -157,7 +158,6 @@
     </main>
 
 </div>
-
 
 <script src="{{ url_for('static', path='js/app.js') }}"></script>
 

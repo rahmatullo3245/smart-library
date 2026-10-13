@@ -1,14 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Kitobni o‘qidim{% endblock %}
+{% block title %}Ман китобро хондам{% endblock %}
 
-{% block page_title %}Kitobni o‘qidim{% endblock %}
+{% block page_title %}Ман китобро хондам{% endblock %}
 
 {% block content %}
 
-<div class="quiz-page">
-
-```
 <!-- Intro -->
 <div class="quiz-intro">
 
@@ -17,11 +14,11 @@
     </div>
 
     <div>
-        <h2>Kitobni o‘qib tugatdingizmi?</h2>
+        <h2>Китобро хонда тамом кардед?</h2>
 
         <p>
-            O‘qigan kitobingizni tanlang va AI sizning
-            asarni qanchalik yaxshi tushunganingizni tekshiradi.
+            Китоби хондаатонро интихоб кунед ва AI
+            месанҷад, ки шумо асарро то чӣ андоза хуб фаҳмидаед.
         </p>
     </div>
 
@@ -34,15 +31,15 @@
     <div class="section-heading">
 
         <div>
-            <h3>Kitobni tanlang</h3>
+            <h3>Китобро интихоб кунед</h3>
 
             <p>
-                O‘qib tugatgan kitobingizni ro‘yxatdan tanlang.
+                Китоберо, ки хонда тамом кардаед, аз рӯйхат интихоб кунед.
             </p>
         </div>
 
         <span class="book-count">
-            0 ta kitob
+            0 китоб
         </span>
 
     </div>
@@ -58,7 +55,7 @@
         <input
             type="text"
             id="book-search-input"
-            placeholder="Kitob nomini qidiring..."
+            placeholder="Номи китобро ҷустуҷӯ кунед..."
         >
 
     </div>
@@ -72,7 +69,7 @@
             type="button"
             class="book-card"
             data-book-id="demo-1"
-            data-book-title="Shohnoma"
+            data-book-title="Шоҳнома"
             onclick="selectBook(this)"
         >
 
@@ -82,14 +79,14 @@
 
             <div class="book-info">
 
-                <strong>Shohnoma</strong>
+                <strong>Шоҳнома</strong>
 
                 <span>
-                    Abulqosim Firdavsiy
+                    Абулқосим Фирдавсӣ
                 </span>
 
                 <small>
-                    Demo kitob
+                    Китоби намунавӣ
                 </small>
 
             </div>
@@ -106,7 +103,7 @@
             type="button"
             class="book-card"
             data-book-id="demo-2"
-            data-book-title="Matematika"
+            data-book-title="Математика"
             onclick="selectBook(this)"
         >
 
@@ -116,14 +113,14 @@
 
             <div class="book-info">
 
-                <strong>Matematika</strong>
+                <strong>Математика</strong>
 
                 <span>
-                    O‘quv qo‘llanma
+                    Дастури таълимӣ
                 </span>
 
                 <small>
-                    Demo kitob
+                    Китоби намунавӣ
                 </small>
 
             </div>
@@ -140,7 +137,7 @@
             type="button"
             class="book-card"
             data-book-id="demo-3"
-            data-book-title="O‘zbek adabiyoti"
+            data-book-title="Адабиёти ӯзбек"
             onclick="selectBook(this)"
         >
 
@@ -150,14 +147,14 @@
 
             <div class="book-info">
 
-                <strong>O‘zbek adabiyoti</strong>
+                <strong>Адабиёти ӯзбек</strong>
 
                 <span>
-                    Adabiyot to‘plami
+                    Маҷмӯаи адабӣ
                 </span>
 
                 <small>
-                    Demo kitob
+                    Китоби намунавӣ
                 </small>
 
             </div>
@@ -177,10 +174,10 @@
         >
             <div>📚</div>
 
-            <strong>Kitob topilmadi</strong>
+            <strong>Китоб ёфт нашуд</strong>
 
             <span>
-                Boshqa kitob nomini qidirib ko‘ring.
+                Номи китоби дигарро ҷустуҷӯ кунед.
             </span>
         </div>
 
@@ -200,7 +197,7 @@
 
         <div class="selected-book-info">
 
-            <span>Tanlangan kitob</span>
+            <span>Китоби интихобшуда</span>
 
             <strong id="selected-book-title">
                 —
@@ -213,7 +210,7 @@
             class="change-book-btn"
             onclick="clearBookSelection()"
         >
-            O‘zgartirish
+            Тағйир додан
         </button>
 
     </div>
@@ -231,12 +228,12 @@
             <div>
 
                 <strong>
-                    AI bilimni tekshiradi
+                    AI дониши шуморо месанҷад
                 </strong>
 
                 <p>
-                    Savollar kitob mazmuni, voqealar,
-                    qahramonlar va asosiy g‘oyalar asosida tuziladi.
+                    Саволҳо дар асоси мазмуни китоб, воқеаҳо,
+                    қаҳрамонҳо ва ғояҳои асосӣ тартиб дода мешаванд.
                 </p>
 
             </div>
@@ -250,7 +247,7 @@
             disabled
             onclick="startQuiz()"
         >
-            Testni boshlash
+            Оғози тест
             <span>→</span>
         </button>
 
@@ -263,10 +260,10 @@
 <div class="how-it-works">
 
     <div class="how-title">
-        <h3>Qanday ishlaydi?</h3>
+        <h3>Чӣ тавр кор мекунад?</h3>
 
         <p>
-            Kitobni o‘qiganingizni oddiy testdan ko‘ra chuqurroq tekshiramiz.
+            Мо хондани китобро амиқтар аз як тести одӣ месанҷем.
         </p>
     </div>
 
@@ -280,10 +277,10 @@
             </div>
 
             <div>
-                <strong>Kitobni tanlang</strong>
+                <strong>Китобро интихоб кунед</strong>
 
                 <span>
-                    O‘qib tugatgan kitobingizni belgilang.
+                    Китоберо, ки хонда тамом кардаед, интихоб намоед.
                 </span>
             </div>
 
@@ -297,10 +294,10 @@
             </div>
 
             <div>
-                <strong>AI savollar beradi</strong>
+                <strong>AI саволҳо медиҳад</strong>
 
                 <span>
-                    AI kitob mazmuniga asoslangan savollar yaratadi.
+                    AI саволҳоро дар асоси мазмуни китоб таҳия мекунад.
                 </span>
             </div>
 
@@ -314,10 +311,10 @@
             </div>
 
             <div>
-                <strong>Natijani oling</strong>
+                <strong>Натиҷаро гиред</strong>
 
                 <span>
-                    Kuchli va tushunilmagan mavzularingizni ko‘ring.
+                    Мавзӯъҳои хуб фаҳмидаатон ва мавзӯъҳои нофаҳморо бинед.
                 </span>
             </div>
 
@@ -334,15 +331,15 @@
     <div class="result-preview-header">
 
         <div>
-            <h3>Natija qanday ko‘rinadi?</h3>
+            <h3>Натиҷа чӣ гуна нишон дода мешавад?</h3>
 
             <p>
-                Keyinchalik AI sizga batafsil tahlil beradi.
+                Баъдтар AI ба шумо таҳлили муфассал пешниҳод мекунад.
             </p>
         </div>
 
         <span class="preview-badge">
-            PREVIEW
+            НАМУНА
         </span>
 
     </div>
@@ -358,7 +355,7 @@
 
             <div>
                 <strong>85%</strong>
-                <span>Umumiy natija</span>
+                <span>Натиҷаи умумӣ</span>
             </div>
 
         </div>
@@ -372,7 +369,7 @@
 
             <div>
                 <strong>17 / 20</strong>
-                <span>To‘g‘ri javob</span>
+                <span>Ҷавобҳои дуруст</span>
             </div>
 
         </div>
@@ -386,7 +383,7 @@
 
             <div>
                 <strong>3</strong>
-                <span>Takrorlash kerak</span>
+                <span>Бояд такрор кард</span>
             </div>
 
         </div>
@@ -394,7 +391,7 @@
     </div>
 
 </div>
-```
+
 
 </div>
 
@@ -404,852 +401,581 @@
 
 <style>
 
-    /* =========================
-       QUIZ PAGE
-    ========================= */
+/* ========================= САҲИФАИ ТЕСТ ========================= */
 
-    .quiz-page {
-        max-width: 1100px;
-        margin: 0 auto;
-    }
+.quiz-page { max-width: 1100px; margin: 0 auto; }
 
+/* ========================= МУҚАДДИМА ========================= */
 
-    /* =========================
-       INTRO
-    ========================= */
+.quiz-intro { display: flex; align-items: center; gap: 16px;
 
-    .quiz-intro {
-        display: flex;
-        align-items: center;
-        gap: 16px;
+margin-bottom: 20px; padding: 20px 22px;
 
-        margin-bottom: 20px;
-        padding: 20px 22px;
+background: linear-gradient( 135deg, #ecfdf5, #eff6ff );
 
-        background: linear-gradient(
-            135deg,
-            #ecfdf5,
-            #eff6ff
-        );
+border: 1px solid #dbeafe; border-radius: var(--radius-lg); }
 
-        border: 1px solid #dbeafe;
-        border-radius: var(--radius-lg);
-    }
+.quiz-intro-icon { width: 52px; height: 52px;
 
-    .quiz-intro-icon {
-        width: 52px;
-        height: 52px;
+flex-shrink: 0;
 
-        flex-shrink: 0;
+display: flex; align-items: center; justify-content: center;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+background: white;
 
-        background: white;
+border-radius: 14px;
 
-        border-radius: 14px;
+font-size: 26px;
 
-        font-size: 26px;
+box-shadow: var(--shadow-sm); }
 
-        box-shadow: var(--shadow-sm);
-    }
+.quiz-intro h2 { margin: 0 0 5px;
 
-    .quiz-intro h2 {
-        margin: 0 0 5px;
+font-size: 20px;
 
-        font-size: 20px;
+color: var(--text); }
 
-        color: var(--text);
-    }
+.quiz-intro p { margin: 0;
 
-    .quiz-intro p {
-        margin: 0;
+font-size: 14px; line-height: 1.5;
 
-        font-size: 14px;
-        line-height: 1.5;
+color: var(--text-secondary); }
 
-        color: var(--text-secondary);
-    }
+/* ========================= КОРТИ ИНТИХОБ ========================= */
 
+.quiz-selection-card { padding: 24px;
 
-    /* =========================
-       SELECTION CARD
-    ========================= */
+background: white;
 
-    .quiz-selection-card {
-        padding: 24px;
+border: 1px solid var(--border); border-radius: var(--radius-lg);
 
-        background: white;
+box-shadow: var(--shadow-sm); }
 
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
+.section-heading { display: flex; align-items: flex-start; justify-content: space-between;
 
-        box-shadow: var(--shadow-sm);
-    }
+gap: 20px;
 
-    .section-heading {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
+margin-bottom: 18px; }
 
-        gap: 20px;
+.section-heading h3 { margin: 0 0 4px;
 
-        margin-bottom: 18px;
-    }
+font-size: 17px;
 
-    .section-heading h3 {
-        margin: 0 0 4px;
+color: var(--text); }
 
-        font-size: 17px;
+.section-heading p { margin: 0;
 
-        color: var(--text);
-    }
+font-size: 12px;
 
-    .section-heading p {
-        margin: 0;
+color: var(--text-secondary); }
 
-        font-size: 12px;
+.book-count { padding: 6px 10px;
 
-        color: var(--text-secondary);
-    }
+background: var(--primary-light);
 
-    .book-count {
-        padding: 6px 10px;
+color: var(--primary);
 
-        background: var(--primary-light);
+border-radius: 8px;
 
-        color: var(--primary);
+font-size: 11px; font-weight: 600;
 
-        border-radius: 8px;
+white-space: nowrap; }
 
-        font-size: 11px;
-        font-weight: 600;
+/* ========================= ҶУСТУҶӮ ========================= */
 
-        white-space: nowrap;
-    }
+.book-search { display: flex; align-items: center;
 
+gap: 9px;
 
-    /* =========================
-       SEARCH
-    ========================= */
+height: 44px;
 
-    .book-search {
-        display: flex;
-        align-items: center;
+padding: 0 13px;
 
-        gap: 9px;
+background: #f8fafc;
 
-        height: 44px;
+border: 1px solid var(--border); border-radius: 10px;
 
-        padding: 0 13px;
+margin-bottom: 16px;
 
-        background: #f8fafc;
+transition: 0.2s; }
 
-        border: 1px solid var(--border);
-        border-radius: 10px;
+.book-search:focus-within { background: white;
 
-        margin-bottom: 16px;
+border-color: var(--primary);
 
-        transition: 0.2s;
-    }
+box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08); }
 
-    .book-search:focus-within {
-        background: white;
+.search-icon { font-size: 15px; }
 
-        border-color: var(--primary);
+.book-search input { width: 100%;
 
-        box-shadow:
-            0 0 0 3px rgba(99, 102, 241, 0.08);
-    }
+border: none; outline: none;
 
-    .search-icon {
-        font-size: 15px;
-    }
+background: transparent;
 
-    .book-search input {
-        width: 100%;
+font-family: inherit; font-size: 13px;
 
-        border: none;
-        outline: none;
+color: var(--text); }
 
-        background: transparent;
+.book-search input::placeholder { color: var(--text-muted); }
 
-        font-family: inherit;
-        font-size: 13px;
+/* ========================= КИТОБҲО ========================= */
 
-        color: var(--text);
-    }
+.books-grid { display: grid;
 
-    .book-search input::placeholder {
-        color: var(--text-muted);
-    }
+grid-template-columns: repeat(3, minmax(0, 1fr));
 
+gap: 12px; }
 
-    /* =========================
-       BOOKS
-    ========================= */
+.book-card { position: relative;
 
-    .books-grid {
-        display: grid;
+display: flex; align-items: center;
 
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
+gap: 12px;
 
-        gap: 12px;
-    }
+min-width: 0;
 
-    .book-card {
-        position: relative;
+padding: 14px;
 
-        display: flex;
-        align-items: center;
+text-align: left;
 
-        gap: 12px;
+background: white;
 
-        min-width: 0;
+border: 1px solid var(--border); border-radius: 12px;
 
-        padding: 14px;
+cursor: pointer;
 
-        text-align: left;
+font-family: inherit;
 
-        background: white;
+transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
 
-        border: 1px solid var(--border);
-        border-radius: 12px;
+.book-card:hover { border-color: #c7d2fe;
 
-        cursor: pointer;
+box-shadow: var(--shadow-sm);
 
-        font-family: inherit;
+transform: translateY(-1px); }
 
-        transition:
-            border-color 0.2s,
-            box-shadow 0.2s,
-            transform 0.2s;
-    }
+.book-card.selected { border-color: var(--primary);
 
-    .book-card:hover {
-        border-color: #c7d2fe;
+background: var(--primary-light);
 
-        box-shadow: var(--shadow-sm);
+box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.08); }
 
-        transform: translateY(-1px);
-    }
+.book-cover { width: 48px; height: 62px;
 
-    .book-card.selected {
-        border-color: var(--primary);
+flex-shrink: 0;
 
-        background: var(--primary-light);
+display: flex; align-items: center; justify-content: center;
 
-        box-shadow:
-            0 0 0 2px rgba(99, 102, 241, 0.08);
-    }
+border-radius: 7px;
 
-    .book-cover {
-        width: 48px;
-        height: 62px;
+background: #fee2e2;
 
-        flex-shrink: 0;
+font-size: 24px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+box-shadow: 0 3px 8px rgba(15, 23, 42, 0.08); }
 
-        border-radius: 7px;
+.book-cover-blue { background: #dbeafe; }
 
-        background: #fee2e2;
+.book-cover-green { background: #dcfce7; }
 
-        font-size: 24px;
+.book-info { min-width: 0; flex: 1; }
 
-        box-shadow:
-            0 3px 8px rgba(15, 23, 42, 0.08);
-    }
+.book-info strong { display: block;
 
-    .book-cover-blue {
-        background: #dbeafe;
-    }
+overflow: hidden;
 
-    .book-cover-green {
-        background: #dcfce7;
-    }
+text-overflow: ellipsis; white-space: nowrap;
 
-    .book-info {
-        min-width: 0;
-        flex: 1;
-    }
+font-size: 13px;
 
-    .book-info strong {
-        display: block;
+color: var(--text); }
 
-        overflow: hidden;
+.book-info span { display: block;
 
-        text-overflow: ellipsis;
-        white-space: nowrap;
+margin-top: 4px;
 
-        font-size: 13px;
+overflow: hidden;
 
-        color: var(--text);
-    }
+text-overflow: ellipsis; white-space: nowrap;
 
-    .book-info span {
-        display: block;
+font-size: 11px;
 
-        margin-top: 4px;
+color: var(--text-secondary); }
 
-        overflow: hidden;
+.book-info small { display: inline-block;
 
-        text-overflow: ellipsis;
-        white-space: nowrap;
+margin-top: 6px;
 
-        font-size: 11px;
+font-size: 9px;
 
-        color: var(--text-secondary);
-    }
+color: var(--text-muted); }
 
-    .book-info small {
-        display: inline-block;
+.book-check { position: absolute;
 
-        margin-top: 6px;
+top: 8px; right: 8px;
 
-        font-size: 9px;
+width: 19px; height: 19px;
 
-        color: var(--text-muted);
-    }
+display: none;
 
-    .book-check {
-        position: absolute;
+align-items: center; justify-content: center;
 
-        top: 8px;
-        right: 8px;
+border-radius: 50%;
 
-        width: 19px;
-        height: 19px;
+background: var(--primary);
 
-        display: none;
+color: white;
 
-        align-items: center;
-        justify-content: center;
+font-size: 11px; font-weight: bold; }
 
-        border-radius: 50%;
+.book-card.selected .book-check { display: flex; }
 
-        background: var(--primary);
+/* ========================= ҲОЛАТИ ХОЛӢ ========================= */
 
-        color: white;
+.books-empty { grid-column: 1 / -1;
 
-        font-size: 11px;
-        font-weight: bold;
-    }
+padding: 35px;
 
-    .book-card.selected .book-check {
-        display: flex;
-    }
+text-align: center;
 
+color: var(--text-muted); }
 
-    /* =========================
-       EMPTY
-    ========================= */
+.books-empty div { font-size: 30px;
 
-    .books-empty {
-        grid-column: 1 / -1;
+margin-bottom: 8px; }
 
-        padding: 35px;
+.books-empty strong { display: block;
 
-        text-align: center;
+font-size: 14px;
 
-        color: var(--text-muted);
-    }
+color: var(--text-secondary); }
 
-    .books-empty div {
-        font-size: 30px;
+.books-empty span { display: block;
 
-        margin-bottom: 8px;
-    }
+margin-top: 4px;
 
-    .books-empty strong {
-        display: block;
+font-size: 11px; }
 
-        font-size: 14px;
+/* ========================= КИТОБИ ИНТИХОБШУДА ========================= */
 
-        color: var(--text-secondary);
-    }
+.selected-book { display: flex; align-items: center;
 
-    .books-empty span {
-        display: block;
+gap: 12px;
 
-        margin-top: 4px;
+margin-top: 16px;
 
-        font-size: 11px;
-    }
+padding: 12px 14px;
 
+background: var(--primary-light);
 
-    /* =========================
-       SELECTED BOOK
-    ========================= */
+border: 1px solid #c7d2fe;
 
-    .selected-book {
-        display: flex;
-        align-items: center;
+border-radius: 11px; }
 
-        gap: 12px;
+.selected-book-icon { width: 38px; height: 38px;
 
-        margin-top: 16px;
+display: flex; align-items: center; justify-content: center;
 
-        padding: 12px 14px;
+background: white;
 
-        background: var(--primary-light);
+border-radius: 9px;
 
-        border: 1px solid #c7d2fe;
+font-size: 18px; }
 
-        border-radius: 11px;
-    }
+.selected-book-info { flex: 1; }
 
-    .selected-book-icon {
-        width: 38px;
-        height: 38px;
+.selected-book-info span { display: block;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+font-size: 10px;
 
-        background: white;
+color: var(--text-secondary); }
 
-        border-radius: 9px;
+.selected-book-info strong { display: block;
 
-        font-size: 18px;
-    }
+margin-top: 2px;
 
-    .selected-book-info {
-        flex: 1;
-    }
+font-size: 13px;
 
-    .selected-book-info span {
-        display: block;
+color: var(--text); }
 
-        font-size: 10px;
+.change-book-btn { padding: 7px 10px;
 
-        color: var(--text-secondary);
-    }
+background: white;
 
-    .selected-book-info strong {
-        display: block;
+border: 1px solid #c7d2fe; border-radius: 8px;
 
-        margin-top: 2px;
+color: var(--primary);
 
-        font-size: 13px;
+font-family: inherit; font-size: 11px;
 
-        color: var(--text);
-    }
+cursor: pointer; }
 
-    .change-book-btn {
-        padding: 7px 10px;
+/* ========================= ОҒОЗ ========================= */
 
-        background: white;
+.quiz-start { display: flex; align-items: center; justify-content: space-between;
 
-        border: 1px solid #c7d2fe;
-        border-radius: 8px;
+gap: 20px;
 
-        color: var(--primary);
+margin-top: 22px; padding-top: 20px;
 
-        font-family: inherit;
-        font-size: 11px;
+border-top: 1px solid var(--border); }
 
-        cursor: pointer;
-    }
+.quiz-start-info { display: flex; align-items: center;
 
+gap: 10px; }
 
-    /* =========================
-       START
-    ========================= */
+.start-icon { width: 38px; height: 38px;
 
-    .quiz-start {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+flex-shrink: 0;
 
-        gap: 20px;
+display: flex; align-items: center; justify-content: center;
 
-        margin-top: 22px;
-        padding-top: 20px;
+background: #fef3c7;
 
-        border-top: 1px solid var(--border);
-    }
+border-radius: 10px;
 
-    .quiz-start-info {
-        display: flex;
-        align-items: center;
+font-size: 18px; }
 
-        gap: 10px;
-    }
+.quiz-start-info strong { display: block;
 
-    .start-icon {
-        width: 38px;
-        height: 38px;
+font-size: 13px;
 
-        flex-shrink: 0;
+color: var(--text); }
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.quiz-start-info p { margin: 3px 0 0;
 
-        background: #fef3c7;
+max-width: 550px;
 
-        border-radius: 10px;
+font-size: 11px; line-height: 1.4;
 
-        font-size: 18px;
-    }
+color: var(--text-secondary); }
 
-    .quiz-start-info strong {
-        display: block;
+.start-quiz-btn { display: flex; align-items: center; justify-content: center;
 
-        font-size: 13px;
+gap: 9px;
 
-        color: var(--text);
-    }
+min-width: 155px;
 
-    .quiz-start-info p {
-        margin: 3px 0 0;
+padding: 11px 16px;
 
-        max-width: 550px;
+border: none; border-radius: 10px;
 
-        font-size: 11px;
-        line-height: 1.4;
+background: var(--primary);
 
-        color: var(--text-secondary);
-    }
+color: white;
 
-    .start-quiz-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+font-family: inherit; font-size: 12px; font-weight: 600;
 
-        gap: 9px;
+cursor: pointer;
 
-        min-width: 155px;
+transition: 0.2s; }
 
-        padding: 11px 16px;
+.start-quiz-btn:hover:not(:disabled) { background: var(--primary-dark);
 
-        border: none;
-        border-radius: 10px;
+transform: translateY(-1px); }
 
-        background: var(--primary);
+.start-quiz-btn:disabled { background: #cbd5e1;
 
-        color: white;
+cursor: not-allowed; }
 
-        font-family: inherit;
-        font-size: 12px;
-        font-weight: 600;
+.start-quiz-btn span { font-size: 16px; }
 
-        cursor: pointer;
+/* ========================= ТАРЗИ КОР ========================= */
 
-        transition: 0.2s;
-    }
+.how-it-works { margin-top: 18px;
 
-    .start-quiz-btn:hover:not(:disabled) {
-        background: var(--primary-dark);
+padding: 20px;
 
-        transform: translateY(-1px);
-    }
+background: white;
 
-    .start-quiz-btn:disabled {
-        background: #cbd5e1;
+border: 1px solid var(--border); border-radius: var(--radius-lg);
 
-        cursor: not-allowed;
-    }
+box-shadow: var(--shadow-sm); }
 
-    .start-quiz-btn span {
-        font-size: 16px;
-    }
+.how-title { margin-bottom: 18px; }
 
+.how-title h3 { margin: 0 0 4px;
 
-    /* =========================
-       HOW IT WORKS
-    ========================= */
+font-size: 15px;
 
-    .how-it-works {
-        margin-top: 18px;
+color: var(--text); }
 
-        padding: 20px;
+.how-title p { margin: 0;
 
-        background: white;
+font-size: 11px;
 
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
+color: var(--text-secondary); }
 
-        box-shadow: var(--shadow-sm);
-    }
+.steps { display: grid;
 
-    .how-title {
-        margin-bottom: 18px;
-    }
+grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    .how-title h3 {
-        margin: 0 0 4px;
+gap: 12px; }
 
-        font-size: 15px;
+.step { display: flex;
 
-        color: var(--text);
-    }
+gap: 10px;
 
-    .how-title p {
-        margin: 0;
+padding: 13px;
 
-        font-size: 11px;
+background: #f8fafc;
 
-        color: var(--text-secondary);
-    }
+border: 1px solid var(--border);
 
-    .steps {
-        display: grid;
+border-radius: 10px; }
 
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
+.step-number { width: 27px; height: 27px;
 
-        gap: 12px;
-    }
+flex-shrink: 0;
 
-    .step {
-        display: flex;
+display: flex; align-items: center; justify-content: center;
 
-        gap: 10px;
+border-radius: 8px;
 
-        padding: 13px;
+background: var(--primary-light);
 
-        background: #f8fafc;
+color: var(--primary);
 
-        border: 1px solid var(--border);
+font-size: 11px; font-weight: 700; }
 
-        border-radius: 10px;
-    }
+.step strong { display: block;
 
-    .step-number {
-        width: 27px;
-        height: 27px;
+font-size: 12px;
 
-        flex-shrink: 0;
+color: var(--text); }
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.step span { display: block;
 
-        border-radius: 8px;
+margin-top: 3px;
 
-        background: var(--primary-light);
+font-size: 10px; line-height: 1.4;
 
-        color: var(--primary);
+color: var(--text-secondary); }
 
-        font-size: 11px;
-        font-weight: 700;
-    }
+/* ========================= НАМОИШИ НАТИҶА ========================= */
 
-    .step strong {
-        display: block;
+.result-preview { margin-top: 18px;
 
-        font-size: 12px;
+padding: 20px;
 
-        color: var(--text);
-    }
+background: white;
 
-    .step span {
-        display: block;
+border: 1px solid var(--border); border-radius: var(--radius-lg);
 
-        margin-top: 3px;
+box-shadow: var(--shadow-sm); }
 
-        font-size: 10px;
-        line-height: 1.4;
+.result-preview-header { display: flex; align-items: flex-start; justify-content: space-between;
 
-        color: var(--text-secondary);
-    }
+gap: 15px;
 
+margin-bottom: 15px; }
 
-    /* =========================
-       RESULT PREVIEW
-    ========================= */
+.result-preview-header h3 { margin: 0 0 4px;
 
-    .result-preview {
-        margin-top: 18px;
+font-size: 15px;
 
-        padding: 20px;
+color: var(--text); }
 
-        background: white;
+.result-preview-header p { margin: 0;
 
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
+font-size: 11px;
 
-        box-shadow: var(--shadow-sm);
-    }
+color: var(--text-secondary); }
 
-    .result-preview-header {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
+.preview-badge { padding: 5px 8px;
 
-        gap: 15px;
+background: #f1f5f9;
 
-        margin-bottom: 15px;
-    }
+color: var(--text-muted);
 
-    .result-preview-header h3 {
-        margin: 0 0 4px;
+border-radius: 6px;
 
-        font-size: 15px;
+font-size: 9px; font-weight: 700;
 
-        color: var(--text);
-    }
+letter-spacing: 0.5px; }
 
-    .result-preview-header p {
-        margin: 0;
+.result-stats { display: grid;
 
-        font-size: 11px;
+grid-template-columns: repeat(3, minmax(0, 1fr));
 
-        color: var(--text-secondary);
-    }
+gap: 12px; }
 
-    .preview-badge {
-        padding: 5px 8px;
+.result-stat { display: flex; align-items: center;
 
-        background: #f1f5f9;
+gap: 10px;
 
-        color: var(--text-muted);
+padding: 13px;
 
-        border-radius: 6px;
+background: #f8fafc;
 
-        font-size: 9px;
-        font-weight: 700;
+border: 1px solid var(--border);
 
-        letter-spacing: 0.5px;
-    }
+border-radius: 10px; }
 
-    .result-stats {
-        display: grid;
+.stat-icon { width: 35px; height: 35px;
 
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
+display: flex; align-items: center; justify-content: center;
 
-        gap: 12px;
-    }
+background: white;
 
-    .result-stat {
-        display: flex;
-        align-items: center;
+border-radius: 9px;
 
-        gap: 10px;
+font-size: 17px; }
 
-        padding: 13px;
+.result-stat strong { display: block;
 
-        background: #f8fafc;
+font-size: 16px;
 
-        border: 1px solid var(--border);
+color: var(--text); }
 
-        border-radius: 10px;
-    }
+.result-stat span { display: block;
 
-    .stat-icon {
-        width: 35px;
-        height: 35px;
+margin-top: 2px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+font-size: 10px;
 
-        background: white;
+color: var(--text-secondary); }
 
-        border-radius: 9px;
+/* ========================= ДАСТГОҲҲОИ МОБИЛӢ ========================= */
 
-        font-size: 17px;
-    }
+@media (max-width: 850px) {
 
-    .result-stat strong {
-        display: block;
+.books-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-        font-size: 16px;
+.steps { grid-template-columns: 1fr; }
 
-        color: var(--text);
-    }
+.result-stats { grid-template-columns: 1fr; }
 
-    .result-stat span {
-        display: block;
+}
 
-        margin-top: 2px;
+@media (max-width: 600px) {
 
-        font-size: 10px;
+.quiz-intro { padding: 15px; }
 
-        color: var(--text-secondary);
-    }
+.quiz-intro-icon { width: 44px; height: 44px;
 
+font-size: 22px; }
 
-    /* =========================
-       MOBILE
-    ========================= */
+.quiz-intro h2 { font-size: 16px; }
 
-    @media (max-width: 850px) {
+.quiz-intro p { font-size: 11px; }
 
-        .books-grid {
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-        }
+.quiz-selection-card { padding: 16px; }
 
-        .steps {
-            grid-template-columns: 1fr;
-        }
+.books-grid { grid-template-columns: 1fr; }
 
-        .result-stats {
-            grid-template-columns: 1fr;
-        }
+.quiz-start { align-items: stretch; flex-direction: column; }
 
-    }
+.quiz-start-info { align-items: flex-start; }
 
+.start-quiz-btn { width: 100%; }
 
-    @media (max-width: 600px) {
+.selected-book { align-items: flex-start; }
 
-        .quiz-intro {
-            padding: 15px;
-        }
+.change-book-btn { margin-left: auto; }
 
-        .quiz-intro-icon {
-            width: 44px;
-            height: 44px;
-
-            font-size: 22px;
-        }
-
-        .quiz-intro h2 {
-            font-size: 16px;
-        }
-
-        .quiz-intro p {
-            font-size: 11px;
-        }
-
-        .quiz-selection-card {
-            padding: 16px;
-        }
-
-        .books-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .quiz-start {
-            align-items: stretch;
-            flex-direction: column;
-        }
-
-        .quiz-start-info {
-            align-items: flex-start;
-        }
-
-        .start-quiz-btn {
-            width: 100%;
-        }
-
-        .selected-book {
-            align-items: flex-start;
-        }
-
-        .change-book-btn {
-            margin-left: auto;
-        }
-
-    }
+}
 
 </style>
 
@@ -1259,144 +985,95 @@
 
 <script>
 
-    const searchInput =
-        document.getElementById("book-search-input");
+const searchInput = document.getElementById("book-search-input");
 
-    const booksGrid =
-        document.getElementById("books-grid");
+const booksGrid = document.getElementById("books-grid");
 
-    const emptyState =
-        document.getElementById("books-empty");
+const emptyState = document.getElementById("books-empty");
 
-    const selectedBook =
-        document.getElementById("selected-book");
+const selectedBook = document.getElementById("selected-book");
 
-    const selectedBookTitle =
-        document.getElementById("selected-book-title");
+const selectedBookTitle = document.getElementById("selected-book-title");
 
-    const startButton =
-        document.getElementById("start-quiz-btn");
+const startButton = document.getElementById("start-quiz-btn");
 
-    let selectedBookId = null;
+let selectedBookId = null;
 
+/* * Интихоби китоб */ function selectBook(bookElement) {
 
-    /*
-     * Select book
-     */
-    function selectBook(bookElement) {
+document .querySelectorAll(".book-card") .forEach(book => { book.classList.remove("selected"); });
 
-        document
-            .querySelectorAll(".book-card")
-            .forEach(book => {
-                book.classList.remove("selected");
-            });
+bookElement.classList.add("selected");
 
-        bookElement.classList.add("selected");
+selectedBookId = bookElement.dataset.bookId;
 
-        selectedBookId =
-            bookElement.dataset.bookId;
+selectedBookTitle.textContent = bookElement.dataset.bookTitle;
 
-        selectedBookTitle.textContent =
-            bookElement.dataset.bookTitle;
+selectedBook.style.display = "flex";
 
-        selectedBook.style.display = "flex";
+startButton.disabled = false;
 
-        startButton.disabled = false;
+}
 
-    }
+/* * Бекор кардани интихоб */ function clearBookSelection() {
 
+document .querySelectorAll(".book-card") .forEach(book => { book.classList.remove("selected"); });
 
-    /*
-     * Clear selection
-     */
-    function clearBookSelection() {
+selectedBookId = null;
 
-        document
-            .querySelectorAll(".book-card")
-            .forEach(book => {
-                book.classList.remove("selected");
-            });
+selectedBook.style.display = "none";
 
-        selectedBookId = null;
+startButton.disabled = true;
 
-        selectedBook.style.display = "none";
+}
 
-        startButton.disabled = true;
+/* * Ҷустуҷӯи китобҳо */ searchInput.addEventListener("input", function() {
 
-    }
+const query = this.value.toLowerCase().trim();
 
+const books = document.querySelectorAll(".book-card");
 
-    /*
-     * Search books
-     */
-    searchInput.addEventListener("input", function() {
+let visibleCount = 0;
 
-        const query =
-            this.value.toLowerCase().trim();
+books.forEach(book => {
 
-        const books =
-            document.querySelectorAll(".book-card");
+const title = book.dataset.bookTitle.toLowerCase();
 
-        let visibleCount = 0;
+if (title.includes(query)) {
 
-        books.forEach(book => {
+book.style.display = "flex";
 
-            const title =
-                book.dataset.bookTitle.toLowerCase();
+visibleCount++;
 
-            if (title.includes(query)) {
+} else {
 
-                book.style.display = "flex";
+book.style.display = "none";
 
-                visibleCount++;
+}
 
-            } else {
+});
 
-                book.style.display = "none";
+if (visibleCount === 0) {
 
-            }
+emptyState.style.display = "block";
 
-        });
+} else {
 
-        if (visibleCount === 0) {
+emptyState.style.display = "none";
 
-            emptyState.style.display = "block";
+}
 
-        } else {
+});
 
-            emptyState.style.display = "none";
+/* * Оғози тест */ function startQuiz() {
 
-        }
+if (!selectedBookId) { return; }
 
-    });
+/* * Ҳоло версияи намоишӣ. * * Баъдтар ин қисм: * * POST /api/v1/quiz/start * * барои сохтани тест тавассути AI истифода мешавад. */
 
+alert( "Тест оғоз мешавад: " + selectedBookTitle.textContent + "\n\nДар марҳилаи оянда ба ин ҷо тести воқеии AI пайваст карда мешавад." );
 
-    /*
-     * Start quiz
-     */
-    function startQuiz() {
-
-        if (!selectedBookId) {
-            return;
-        }
-
-        /*
-         * Hozircha demo.
-         *
-         * Keyinchalik bu joy:
-         *
-         * POST /api/v1/quiz/start
-         *
-         * orqali AI quiz yaratadi.
-         */
-
-        alert(
-            "Test boshlanadi: " +
-            selectedBookTitle.textContent +
-            "\n\nKeyingi bosqichda bu yerga haqiqiy AI testi ulanadi."
-        );
-
-    }
+}
 
 </script>
 

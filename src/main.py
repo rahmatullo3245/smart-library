@@ -167,4 +167,3 @@ admin.add_view(BookAdmin)
 admin.add_view(BookChunkAdmin)
 admin.add_view(AdminUserAdmin)
 
-print("kuchirish")
